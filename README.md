@@ -2,27 +2,27 @@
 
 #### Angular Cli
 
-Installation :
+Installation :  
 `npm install -g @angular/cli@latest`
 
-Version :
-`ng version`
+Version :  
+`ng version`  
 version -> Angular CLI: `8.3.x` ou >
 
-Créer une nouvelle application :
-`ng new toto`
-Validé sass style css.
+Créer une nouvelle application :  
+`ng new toto`  
+Validé sass style css.  
 Validé l'ajout d'un module router.
 
-Demarrer l'application (serveur de developpement)
+Demarrer l'application (serveur de developpement)  
 `ng serve`
 
-Compiler l'application pour la production :
-`ng build`
-installation sur serveur distant [ici](https://github.com/jguyet)
+Compiler l'application pour la production :  
+`ng build`  
+installation sur serveur distant [ici](https://github.com/jguyet/angular-mise-en-prod-tuto)
 
-Lancer les tests unitaires :
+Lancer les tests unitaires :  
 `ng test`
 
-Lancer les tests end-to-end :
+Lancer les tests end-to-end :  
 `ng e2e`
