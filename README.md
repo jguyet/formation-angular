@@ -6,7 +6,7 @@
 #### 2. Angular CLI Premiere application
 [https://github.com/jguyet/formation-angular/tree/angular-cli](https://github.com/jguyet/formation-angular/tree/angular-cli)
 
-# Clonage du Simple webSite cloner la branch <base>
+#### Pres-requis branch <base>
 
 Configuration de git sur vos compute :   
 `git config --global user.name "jguyet"`  
