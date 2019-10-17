@@ -1,0 +1,24 @@
+<!-- Toolbar projection -->
+<app-toolbar></app-toolbar>
+
+<!-- Content -->
+<div class="content" [ngClass]="{ 'production': production == true }" role="main">
+
+  <!-- Route projection -->
+  <router-outlet></router-outlet>
+
+  <!-- Terminal -->
+  <!-- S'inscrire à la newsletter :
+  <input type="text" [(ngModel)]="toto" />
+  <div class="terminal" [ngSwitch]="toto">
+        <pre *ngSwitchDefault>ng generate component xyz</pre>
+        <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
+        <pre *ngSwitchCase="'dependency'">ng add _____</pre>
+        <pre *ngSwitchCase="'test'">ng test</pre>
+        <pre *ngSwitchCase="'build'">ng build --prod</pre>
+  </div> -->
+
+  <!-- Footer projection -->
+  <app-footer></app-footer>
+
+</div>
