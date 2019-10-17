@@ -8,7 +8,7 @@
 
 #### Pres-requis branch <base>
 
-Configuration de git sur vos environements :   
+Configuration de git sur vos environnements :   
 `git config --global user.name "jguyet"`  
 `git config --global user.email "jguyet@ambient-it.org"`  
 
@@ -21,27 +21,27 @@ Installation du projet de formation :
 
 #### 3. Mon 1er Composant
 
-Coder un nouveau Composant  
+Codez un nouveau Composant  
 `ng generate component nomducomposant`  
 
 #### 4. Ma Premiere Directive
 
-Coder une nouvelle Directive  
+Codez une nouvelle Directive  
 `ng generate directive nomdeladirective`    
 
 #### 5. Création d'un module (share.module.ts)
 
-Coder un nouveau Module  
+Codez un nouveau Module  
 `ng generate module nomdumodule`  
 
 #### 6. Premier pipe
 
-Coder un nouveau Pipe  
+Codez un nouveau Pipe  
 `ng generate pipe nomdupipe`  
 
 #### 7. Créer un Service
 
-Coder un nouveau service  
+Codez un nouveau service  
 `ng generate service nomduservice`  
 
 #### 8. Routing Module
