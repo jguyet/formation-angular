@@ -8,12 +8,12 @@
 
 # Clonage du Simple webSite cloner la branch <base>
 
-Configuration de git sur vos compute :  
+Configuration de git sur vos compute :   
 `git config --global user.name "jguyet"`  
 `git config --global user.email "jguyet@ambient-it.org"`  
 
-Installation du projet de formation : 
-[https://github.com/jguyet/formation-angular/tree/base](https://github.com/jguyet/formation-angular/tree/base) 
+Installation du projet de formation :  
+[https://github.com/jguyet/formation-angular/tree/base](https://github.com/jguyet/formation-angular/tree/base)  
 `git clone https://github.com/jguyet/formation-angular.git`  
 `git fetch`  
 `git checkout base`  
