@@ -21,27 +21,27 @@ Installation du projet de formation :
 
 #### 3. Mon 1er Composant
 
-Codez un nouveau Composant  
+Coder un nouveau Composant  
 `ng generate component nomducomposant`  
 
 #### 4. Ma Premiere Directive
 
-Codez une nouvelle Directive  
+Coder une nouvelle Directive  
 `ng generate directive nomdeladirective`    
 
 #### 5. Création d'un module (share.module.ts)
 
-Codez un nouveau Module  
+Coder un nouveau Module  
 `ng generate module nomdumodule`  
 
 #### 6. Premier pipe
 
-Codez un nouveau Pipe  
+Coder un nouveau Pipe  
 `ng generate pipe nomdupipe`  
 
 #### 7. Créer un Service
 
-Codez un nouveau service  
+Coder un nouveau service  
 `ng generate service nomduservice`  
 
 #### 8. Routing Module
