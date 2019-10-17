@@ -8,7 +8,7 @@
 
 #### Pres-requis branch <base>
 
-Configuration de git sur vos compute :   
+Configuration de git sur vos environements :   
 `git config --global user.name "jguyet"`  
 `git config --global user.email "jguyet@ambient-it.org"`  
 
