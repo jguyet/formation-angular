@@ -46,8 +46,8 @@ Coder un nouveau service
 
 #### 8. Routing Module
 
-Pour utiliser le RoutingModule vous avez deux facon de l'installer :  
-1. en choisisant sont importation à la generation d'un module à l'aide d'angular cli avec le flag `--routing`  
+Pour utiliser le RoutingModule vous avez deux façons de l'installer :  
+1. en choisissant son importation à la generation d'un module à l'aide d'angular cli avec le flag `--routing`  
 2. en le créant manuellement.  
 
 #### 9. Rxjs les observables
@@ -56,12 +56,12 @@ Explication d'un observable et utilisation dans le tp suivant.
 
 #### 10. Service HttpClient (communication avec une api)
 
-Création d'un service qui communiquera avec une api fournis.
+Création d'un service qui communiquera avec une api fourni.
 
 #### 11. Formulaires
 
-Création d'une nouvelle page d'insertion de nouveaux items.
-Utilisation du service crée précedement.
+Création d'une nouvelle page d'insertion de nouveaux assets.  
+Utilisation du service créé précedement.  
 
 #### Credit 
 
