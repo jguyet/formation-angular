@@ -4,8 +4,11 @@
 <!-- Content -->
 <div class="content" [ngClass]="{ 'production': production == true }" role="main">
 
-  <!-- Me first component  -->
-  <app-example></app-example>
+  <!-- Me first component
+        number passed by attr binding,
+        computeEvent binded on computeFunction,
+        transclusion ng-content -->
+  <app-example [number]="currentNumber" (computeEvent)="computeFunction($event);" >transclusion</app-example>
   <!-- Route projection -->
   <router-outlet></router-outlet>
 

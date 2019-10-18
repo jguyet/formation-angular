@@ -6,5 +6,5 @@
     <!-- input event/property binding two ways -->
     <input [ngStyle]="styleCSS" type="text" [(ngModel)]="text" >
     <!-- utilisation d'un property binding et d'un event binding -->
-    <button [ngStyle]="styleCSS" (click)="click($event);">click on me</button>
+    <button [ngStyle]="styleCSS" (click)="click($event);">click on me <ng-content></ng-content></button>
 </div>
