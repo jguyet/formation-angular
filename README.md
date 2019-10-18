@@ -20,9 +20,16 @@ Installation du projet de formation :
 `npm install`  
 
 #### 3. Mon 1er Composant
+[https://github.com/jguyet/formation-angular/tree/new-component](https://github.com/jguyet/formation-angular/tree/new-component)  
 
 Coder un nouveau Composant  
-`ng generate component nomducomposant`  
+`ng generate component nomducomposant`
+
+TP 1 - Exemples de Binding one way et two way :  
+[https://github.com/jguyet/formation-angular/tree/component-binding-1](https://github.com/jguyet/formation-angular/tree/component-binding-1)  
+
+TP 2 - Exemples de Binding entre composant parent/enfant :  
+[https://github.com/jguyet/formation-angular/tree/component-binding-2](https://github.com/jguyet/formation-angular/tree/component-binding-1)  
 
 #### 4. Ma Premiere Directive
 
