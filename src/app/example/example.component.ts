@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExampleComponent implements OnInit {
 
-  constructor() { }
+    public text: string = 'value';
 
-  ngOnInit() {
-  }
+    public propertyClassCSS: string = 'Rien';
+
+    // CSS PATTERN
+    public styleCSS: any = {
+        'height': '30px',
+        'width': '100%',
+        'margin': '5px 10px'
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+
+    // EVENT BINDING FUNCTION :
+    public click(event) {
+        console.log(event, );
+    }
 
 }
