@@ -88,3 +88,27 @@
         margin-left: 72px;
     }
 }
+
+.hovertest:hover {
+    color: red;
+}
+
+.scroll-container {
+    display: block;
+    height: 80px;
+    overflow-y: scroll;
+    width: 80px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-image: initial;
+    background-color: yellow;
+}
+
+.scroll-element {
+    align-items: center;
+    display: flex;
+    font-size: 4em;
+    height: 100%;
+    justify-content: center;
+}

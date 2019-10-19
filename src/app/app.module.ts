@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
+import { ScrollContainerComponent } from './scroll-container/scroll-container.component';
+import { ScrollPageComponent } from './scroll-page/scroll-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     ToolbarComponent,
-    HomeComponent
+    HomeComponent,
+    ScrollContainerComponent,
+    ScrollPageComponent
   ],
   imports: [
     BrowserModule,
