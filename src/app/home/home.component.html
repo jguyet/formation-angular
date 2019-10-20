@@ -2,5 +2,5 @@
     <span>Bienvenue sur <b class="card-title">{{ title }}</b> version {{ version }} </span>
 </div>
 <div class="card-container">
-    <app-card *ngFor="let card of cards" [card]="card"></app-card>
+    <app-card *ngFor="let card of cards | async" [card]="card"></app-card>
 </div>
