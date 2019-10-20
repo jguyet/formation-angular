@@ -15,4 +15,8 @@ export class CardService {
     public getCards(): Promise<Card[]> {
         return this.cards;
     }
+
+    public getCard(id: string): Promise<Card> {
+        return this.cards.then(x => x[id]);
+    }
 }

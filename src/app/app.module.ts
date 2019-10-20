@@ -7,13 +7,15 @@ import { FooterComponent } from './footer/footer.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     ToolbarComponent,
-    HomeComponent
+    HomeComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

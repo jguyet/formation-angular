@@ -1,0 +1,4 @@
+<p *ngIf="(card | async) as c">
+    {{ c.title }}
+    <img class="card-icon" src="../assets/img/miel_{{ c.picture }}.png" width="48" height="48"/>
+</p>
