@@ -32,6 +32,7 @@ TP 2 - Exemples de Binding entre composant parent/enfant :
 [https://github.com/jguyet/formation-angular/tree/component-binding-2](https://github.com/jguyet/formation-angular/tree/component-binding-1)  
 
 #### 4. Ma Premiere Directive
+[https://github.com/jguyet/formation-angular/tree/directives](https://github.com/jguyet/formation-angular/tree/directives)  
 
 Coder une nouvelle Directive  
 `ng generate directive nomdeladirective`    
