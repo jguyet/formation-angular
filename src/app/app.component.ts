@@ -8,7 +8,14 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent {
 
+  public valeur: string = 'valeur';
   public toto: string           = 'build';
   public production: boolean   = environment.production;
+
+  public arr: Array<string> = ['1', '2'];
+
+  public parentMethod(event: string) {
+    console.log(`ENFANT DIT : ${event}`);
+  }
 
 }

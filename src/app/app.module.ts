@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component';
+import { HelloComponent } from './hello/hello.component';
+import { NgClass2Directive } from './ng-class2.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     ToolbarComponent,
-    HomeComponent
+    HomeComponent,
+    HelloComponent,
+    NgClass2Directive
   ],
   imports: [
     BrowserModule,
