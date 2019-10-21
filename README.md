@@ -38,21 +38,25 @@ Coder une nouvelle Directive
 `ng generate directive nomdeladirective`    
 
 #### 5. Création d'un module (share.module.ts)
+[https://github.com/jguyet/formation-angular/tree/modules](https://github.com/jguyet/formation-angular/tree/modules)  
 
 Coder un nouveau Module  
 `ng generate module nomdumodule`  
 
 #### 6. Premier pipe
+[https://github.com/jguyet/formation-angular/tree/pipes](https://github.com/jguyet/formation-angular/tree/pipes)  
 
 Coder un nouveau Pipe  
 `ng generate pipe nomdupipe`  
 
 #### 7. Créer un Service
+[https://github.com/jguyet/formation-angular/tree/services](https://github.com/jguyet/formation-angular/tree/services)  
 
 Coder un nouveau service  
 `ng generate service nomduservice`  
 
 #### 8. Routing Module
+[https://github.com/jguyet/formation-angular/tree/routing](https://github.com/jguyet/formation-angular/tree/routing)  
 
 Pour utiliser le RoutingModule vous avez deux façons de l'installer :  
 1. en choisissant son importation à la generation d'un module à l'aide d'angular cli avec le flag `--routing`  
