@@ -9,6 +9,6 @@ import { environment } from '../environments/environment';
 export class AppComponent {
 
   public toto: string           = 'build';
-  public production: boolean   = environment.production;
+  public production: boolean    = environment.production;
 
 }
