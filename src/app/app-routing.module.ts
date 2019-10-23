@@ -25,6 +25,15 @@ import { DialogueComponent } from './components/dialogue/dialogue.component';
 
 
 const routes: Routes = [
+  /**
+   * {
+   *    path: 'le path correspond au chemin depuis la racine courante du routing module (faire attention quand notre routing module et un childModule)',
+   *    component: Composant a projeter
+   *    loadChildren: chemin de votre childModule (permet de faire du lazy loading),
+   *    pathMatch: 'full' ou 'prefix' permet gerer une certaine pertinance sur des path (principalement entre routingModule enfant/parent)
+   *    redirectTo: 'url of redirection'
+   * },
+   */
   { path: 'typography', component: TypographyComponent },
   { path: 'button', component: ButtonComponent },
   { path: 'icon', component: IconComponent },
