@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CardApiService } from '../shared/services/card-api.service';
 import { ExampleApiService } from '../shared/services/example-api.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Card } from '../shared/models/Card';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +12,11 @@ import { ExampleApiService } from '../shared/services/example-api.service';
 })
 export class HomeComponent implements OnInit {
 
-    public title = 'Botick';
-    public version = '1.0';
-    public cards: Promise<any>;
+    public cards: Observable<Card[]>;
 
-    constructor(public cardApiService: CardApiService,
-      public exampleApiService: ExampleApiService) { }
+    constructor(public cardApiService: CardApiService) { }
 
     ngOnInit() {
       this.cards = this.cardApiService.getCards();
-      this.title = this.exampleApiService.examplllllee(false);
     }
 }

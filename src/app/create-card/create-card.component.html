@@ -1,0 +1,6 @@
+<form (ngSubmit)="submit($event);" [formGroup]="cardGroup">
+    <input type="text" formControlName="title" /><br>
+    <input type="text" formControlName="type" /><br>
+    <input type="text" formControlName="price"/><br>
+    <button type="submit" [disabled]="cardGroup.invalid">Valider</button>
+</form>
