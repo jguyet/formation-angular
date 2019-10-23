@@ -1,0 +1,34 @@
+<mat-form-field>
+    <mat-label>Date View</mat-label>
+    <input matInput [matDatepicker]="myDatePicker">
+    <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Month View</mat-label>
+    <input matInput [matDatepicker]="myDatePicker2">
+    <mat-datepicker-toggle [for]="myDatePicker2" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker2 startView="year"></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Year View</mat-label>
+    <input matInput [matDatepicker]="myDatePicker3">
+    <mat-datepicker-toggle [for]="myDatePicker3" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker3 startView="multi-year"></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Min and Max</mat-label>
+    <input matInput [matDatepicker]="myDatePicker4"  [min]="minDate" [max]="maxDate">
+    <mat-datepicker-toggle [for]="myDatePicker4" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker4></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>No Saturday Sunday</mat-label>
+    <input matInput [matDatepicker]="myDatePicker5" [matDatepickerFilter]="saturdaySundayFilter">
+    <mat-datepicker-toggle [for]="myDatePicker5" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker5></mat-datepicker>
+</mat-form-field>

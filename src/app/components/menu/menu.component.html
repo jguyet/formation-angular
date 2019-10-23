@@ -1,0 +1,17 @@
+<mat-menu #appMenu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="frontendSubMenu">FrontEnd</button>
+    <button mat-menu-item [matMenuTriggerFor]="backendSubMenu">BackEnd</button>
+</mat-menu>
+<button mat-flat-button color="accent" [matMenuTriggerFor]="appMenu">Menu</button>
+
+<mat-menu #frontendSubMenu="matMenu">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>React</button>
+    <button mat-menu-item>Vue</button>
+</mat-menu>
+
+<mat-menu #backendSubMenu="matMenu">
+    <button mat-menu-item>Nodejs</button>
+    <button mat-menu-item>Spring Boot</button>
+    <button mat-menu-item>Django</button>
+</mat-menu>

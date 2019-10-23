@@ -1,0 +1,35 @@
+mat-card {
+  margin: 2em;
+}
+
+.example-card {
+    max-width: 250px;
+    max-height: 170px;
+    margin-bottom: 50px;
+    float: left;
+}
+
+.example-header-image {
+  /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+  background-size: cover;
+}
+
+
+mat-card-actions {
+    text-align: end;
+}
+
+mat-card-title {
+    overflow: hidden;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+mat-card-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
