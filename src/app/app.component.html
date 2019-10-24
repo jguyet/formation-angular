@@ -1,5 +1,6 @@
 <div>
   <ul>
+    <li> <a mat-flat-button [color]="router.url == '/featureOne/lazy' ? 'warn' : 'accent'" routerLink="/featureOne/lazy">Lazy</a> </li>
     <li> <a mat-flat-button [color]="router.url == '/' ? 'warn' : 'accent'" routerLink="/">Card</a> </li>
     <li> <a mat-flat-button [color]="router.url == '/typography' ? 'warn' : 'accent'" routerLink="typography">Typography</a> </li>
     <li> <a mat-flat-button [color]="router.url == '/button' ? 'warn' : 'accent'" routerLink="button">Button</a> </li>
@@ -26,5 +27,11 @@
 </div>
 
 <div>
-  <router-outlet></router-outlet>
+  <app-input>
+    <app-icon></app-icon>
+  </app-input>
+  
+  
+  
+  <!-- <router-outlet></router-outlet> -->
 </div>

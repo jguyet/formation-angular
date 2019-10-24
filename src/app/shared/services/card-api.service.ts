@@ -10,7 +10,7 @@ import { Card } from '../models/card';
 export class CardApiService {
 
    private protocol: string = 'http://';
-   private endpoint: string = 'localhost:8080';
+   private endpoint: string = '192.168.3.100:8080';
 
   constructor(private httpClient: HttpClient) {
 

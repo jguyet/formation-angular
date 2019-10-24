@@ -31,6 +31,8 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { SnackbarComponent, CustomSnackbarComponent } from './components/snackbar/snackbar.component';
 import { DialogueComponent, ExampleDialogComponent } from './components/dialogue/dialogue.component';
 import { SharedModule } from './shared/shared.module';
+import { FeatureOneModule } from './feature-one/feature-one.module';
+import { AuthGuard } from './security/auth.guard';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,7 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

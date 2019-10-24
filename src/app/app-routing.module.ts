@@ -22,6 +22,7 @@ import { DatepickerComponent } from './components/datepicker/datepicker.componen
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { DialogueComponent } from './components/dialogue/dialogue.component';
+import { AuthGuard } from './security/auth.guard';
 
 
 const routes: Routes = [
@@ -34,6 +35,12 @@ const routes: Routes = [
    *    redirectTo: 'url of redirection'
    * },
    */
+  { path: 'featureOne', loadChildren: () => {
+      console.log('LOAD OF LAZY');
+      return import('./feature-one/feature-one.module').then((x) => x.FeatureOneModule)
+    },
+    canLoad: [AuthGuard]
+  },
   { path: 'typography', component: TypographyComponent },
   { path: 'button', component: ButtonComponent },
   { path: 'icon', component: IconComponent },
