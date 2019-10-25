@@ -1,0 +1,10 @@
+<mat-form-field>
+    <mat-label>Basic Static</mat-label>
+    <input [(ngModel)]="newValue" matInput>
+</mat-form-field>
+<mat-form-field *ngIf="(currentValue | async) as v">
+    <mat-label>Current State :</mat-label>
+    <input [value]="v.value" disabled matInput>
+</mat-form-field>
+<a mat-flat-button color="accent" (click)="change()">Change</a><br>
+<a mat-flat-button color="accent" (click)="reset()">Reset</a>

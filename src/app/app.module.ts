@@ -31,6 +31,8 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { SnackbarComponent, CustomSnackbarComponent } from './components/snackbar/snackbar.component';
 import { DialogueComponent, ExampleDialogComponent } from './components/dialogue/dialogue.component';
 import { SharedModule } from './shared/shared.module';
+import { ApplicationStoreModule } from './store/application-store.module';
+import { ReduxComponent } from './components/redux/redux.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { SharedModule } from './shared/shared.module';
     CustomSnackbarComponent,
     DialogueComponent,
     ExampleDialogComponent,
+    ReduxComponent,
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent],
   imports: [
@@ -68,7 +71,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ApplicationStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
