@@ -1,0 +1,27 @@
+{
+    "home": {
+        "sidebarActive": false
+    },
+    "login": {
+        "username": "toto@gmail.com",
+        "password": "sggergregregrhreh"
+    },
+    "footer": {
+        "contact": "voila.contact@gmail.com",
+        "phone": "0-0-0-06"
+    }
+}
+
+{
+    "home": {
+        "sidebarActive": true
+    },
+    "login": {
+        "username": "toto@gmail.com",
+        "password": "sggergregregrhreh"
+    },
+    "footer": {
+        "contact": "voila.contact@gmail.com",
+        "phone": "0-0-0-06"
+    }
+}
