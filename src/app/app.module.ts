@@ -31,6 +31,9 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { SnackbarComponent, CustomSnackbarComponent } from './components/snackbar/snackbar.component';
 import { DialogueComponent, ExampleDialogComponent } from './components/dialogue/dialogue.component';
 import { SharedModule } from './shared/shared.module';
+import { StorageComponent } from './components/storage/storage.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormationComponent } from './components/formation/formation.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,9 @@ import { SharedModule } from './shared/shared.module';
     CustomSnackbarComponent,
     DialogueComponent,
     ExampleDialogComponent,
+    StorageComponent,
+    LoginComponent,
+    FormationComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent],
   imports: [

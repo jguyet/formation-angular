@@ -1,0 +1,41 @@
+<h1>Upload your file to storage</h1>
+<mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+        <mat-panel-title (click)="$event.stopPropagation();">
+            <ng-container *ngIf="(imgFile | async) as i" ><img [src]="i" style="max-width: 20px;max-height: 20px;" /></ng-container>
+            <div style="text-overflow: ellipsis;">{{ inputFile.files.length > 0 ? inputFile.files[0].name : 'Aucun fichier' }}</div>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngIf="uploadResponse.status === 'complete'" class="text-zone">
+    <p>File Uploaded id: {{ uploadResponse.content }}</p><p style="float: right">100%</p>
+    </div>
+    <div *ngIf="uploadResponse.status === 'progress'" class="text-zone">
+    <p>Chargement ...</p><p style="float: right">{{ uploadResponse.progress }}%</p>
+    </div>
+    <div *ngIf="uploadResponse.status === 'error' && uploadResponse.message !== undefined" class="text-zone" style="color:red;">
+    Error: {{ uploadResponse.message }}
+    </div>
+    <div *ngIf="uploadResponse.status !== 'error' && uploadResponse.status !== 'complete' && uploadResponse.status !== 'progress'" class="text-zone">
+    </div>
+    <div *ngIf="uploadResponse.status === 'error' && uploadResponse.message === undefined && uploadResponse.error !== undefined && uploadResponse.error.error !== undefined && uploadResponse.error.error.errors !== undefined && uploadResponse.error.error.errors[0].code === 1100" class="text-zone" style="color:red;">
+    File input is empty. 
+    </div>
+    <div *ngIf="uploadResponse.status === 'error' && uploadResponse.error !== undefined && uploadResponse.error.status === 0" class="text-zone" style="color:red;">
+    Server does not respond.
+    </div>
+    <div *ngIf="uploadResponse.status === 'progress'">
+            <div role="progressbar" [style.width.%]="uploadResponse.progress" style="background-color: green;min-height: 6px;border-radius: 5px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            </div>
+    </div>
+    <div *ngIf="uploadResponse.status === 'complete'" style="min-height: 6px;line-height: 6px;background-color:green;width: 100%;border-radius: 5px;"></div>
+    <div *ngIf="uploadResponse.status !== 'progress' && uploadResponse.status !== 'complete' && uploadResponse.status !== 'error'" style="min-height: 6px;line-height: 6px;background-color:black;width: 100%;border-radius: 5px;"></div>
+    <div *ngIf="uploadResponse.status === 'error'" style="min-height: 6px;line-height: 6px;background-color:red;width: 100%;border-radius: 5px;"></div>
+    <mat-action-row>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <button mat-raised-button type="button" (click)="inputFile.click();">Import</button>
+                <input hidden #inputFile type="file" name="file" (change)="onFileChange($event)" />
+                <button mat-raised-button type="submit" [disabled]="inputFile.files ? inputFile.files.length > 0 ? false : true : true" style="float:right;" >Upload</button>
+            </form>
+    </mat-action-row>
+</mat-expansion-panel>
+<p style="font-size: 0.7em;">(*Bien configurer l'url du serveur de stockage dans la configuration des environements.)</p>

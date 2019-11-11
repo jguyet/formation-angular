@@ -22,6 +22,9 @@ import { DatepickerComponent } from './components/datepicker/datepicker.componen
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { DialogueComponent } from './components/dialogue/dialogue.component';
+import { StorageComponent } from './components/storage/storage.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormationComponent } from './components/formation/formation.component';
 
 
 const routes: Routes = [
@@ -55,7 +58,10 @@ const routes: Routes = [
   { path: 'tooltip', component: TooltipComponent },
   { path: 'snackbar', component: SnackbarComponent },
   { path: 'dialogue', component: DialogueComponent },
-  { path: '', component: CardsComponent }
+  { path: 'storage', component: StorageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'cards', component: CardsComponent },
+  { path: '', component: FormationComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,12 @@
+mat-expansion-panel {
+    margin: 1em;
+}
+
+p {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.text-zone {
+    min-height: 48px;
+}

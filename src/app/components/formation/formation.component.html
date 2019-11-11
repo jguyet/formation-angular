@@ -1,0 +1,51 @@
+<mat-vertical-stepper>
+    <ng-template matStepperIcon="edit">
+        <mat-icon>done_outline</mat-icon>
+    </ng-template>
+    <mat-step label="Bienvenue">
+        <p>La formation est représentée ici par cette ligne d'étape réalisée avec mat-step.</p>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Redux">
+        <p>Requis: J'ai réalisé une sauvegarde d'etat de mon application.</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Lazy Loading">
+        <p>Requis: J'ai réalisé un chargement dynanique d'une partie de mon application.</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Route Guards">
+        <p>Requis: J'ai testé les guards suivants :</p>
+        <p>canActivate</p>
+        <p>canActivateChild</p>
+        <p>canLoad</p>
+        <p>canDeactivate</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Manipulation du DOM">
+        <p>Requis: J'ai testé les manipulations suivantes:</p>
+        <p>@ViewChild</p>
+        <p>ElementRef</p>
+        <p>@ContentChild</p>
+        <p>ng-content</p>
+        <p>ng-template</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Tests unitaires">
+        <p>Requis: J'ai vu les concepts suivants:</p>
+        <p>La structure d'un test unitaire</p>
+        <p>Les mocks avec Jasmine Spy (SpyOn, ...)</p>
+        <p>La création d'un module dans le fichier de test unitaire avec TestBed</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Fin">
+        <p>Bravo la formation est terminée</p>
+        <p>Tu n'as plus qu'a approfondire tes connaissances !</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+    </mat-step>
+</mat-vertical-stepper>
