@@ -1,19 +1,22 @@
 'use strict';
 
 const orm = require("orm");
-const CartModel = require("./models/Cart");
+const CardModel = require("./models/Card");
+const AccountModel = require("./models/Account");
 
 /**
  *  https://github.com/dresende/node-orm2
  */
 module.exports = function(app) {
 
-    app.use(orm.express("mysql://root:mdp@localhost/formation", {
+    app.use(orm.express("mysql://root:tishirt@localhost/formation", {
         define: function (db, models) {
-            models.cart = CartModel(orm, db);
+            models.card = CardModel(orm, db);
+            models.account = AccountModel(orm, db);
 
             [
-                models.cart
+                models.card,
+                models.account
             ].forEach((model) => {
                 model.syncPromise((x) => {
                     if (x) console.error(x);

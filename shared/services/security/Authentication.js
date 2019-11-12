@@ -39,21 +39,3 @@ exports.DecodeToken = function(headers) {
 
     return jwt.decode(token);
 };
-
-/**
- * Get account with token loaded before from database.
- */
-exports.LoadAccount = function(req, res, next) {
-    var accountId = req._token.id;
-
-    req.models.account.get(accountId, function(err, account) {
-        match(account)
-        ([
-            (/* success */) => {
-                req._account = account;
-                next();
-            },
-            [undefined, (/* failed */) => res.status(404).send(err)]
-        ]);
-    });
-}
