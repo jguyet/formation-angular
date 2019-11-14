@@ -25,6 +25,7 @@ import { DialogueComponent } from './components/dialogue/dialogue.component';
 import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 
 const routes: Routes = [
@@ -61,6 +62,7 @@ const routes: Routes = [
   { path: 'storage', component: StorageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cards', component: CardsComponent },
+  { path: 'counter', component: CounterComponent },
   { path: '', component: FormationComponent }
 ];
 

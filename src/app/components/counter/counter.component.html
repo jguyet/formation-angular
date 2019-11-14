@@ -1,0 +1,15 @@
+<mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Current Count:
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>{{ count$ | async }}</div>
+    <mat-action-row>
+            <button mat-raised-button id="increment" (click)="increment()">Increment</button>
+            <button mat-raised-button id="decrement" (click)="decrement()">Decrement</button>
+            <button mat-raised-button id="mult" (click)="mult()">Mult</button>
+            <button mat-raised-button id="div" (click)="div()">Div</button>
+            <button mat-raised-button id="reset" (click)="reset()">Reset Counter</button>
+    </mat-action-row>
+</mat-expansion-panel>
