@@ -25,6 +25,8 @@ import { DialogueComponent } from './components/dialogue/dialogue.component';
 import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { GuardGuard } from './guard.guard';
 
 
 const routes: Routes = [
@@ -61,6 +63,17 @@ const routes: Routes = [
   { path: 'storage', component: StorageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cards', component: CardsComponent },
+  { path: 'counter',
+    component: CounterComponent,
+    canActivate: [GuardGuard],
+    canDeactivate: [GuardGuard]
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(_ => _.AdminModule),
+    canLoad: [GuardGuard],
+    canActivateChild: [GuardGuard]
+  },
   { path: '', component: FormationComponent }
 ];
 

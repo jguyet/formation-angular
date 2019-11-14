@@ -34,6 +34,8 @@ import { SharedModule } from './shared/shared.module';
 import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { MyStoreModule } from './store/my-store.module';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,8 @@ import { FormationComponent } from './components/formation/formation.component';
     ExampleDialogComponent,
     StorageComponent,
     LoginComponent,
-    FormationComponent
+    FormationComponent,
+    CounterComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent],
   imports: [
@@ -74,7 +77,8 @@ import { FormationComponent } from './components/formation/formation.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MyStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
