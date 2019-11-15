@@ -36,6 +36,9 @@ import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { MyStoreModule } from './store/my-store.module';
+import { ProjectionComponent } from './components/projection/projection.component';
+import { FooComponent } from './components/foo/foo.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +70,10 @@ import { MyStoreModule } from './store/my-store.module';
     StorageComponent,
     LoginComponent,
     FormationComponent,
-    CounterComponent
+    CounterComponent,
+    ProjectionComponent,
+    FooComponent,
+    ChatComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent],
   imports: [

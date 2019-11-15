@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { UploadService } from './services/upload.service';
 import { AuthService } from './security/auth.service';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { EmgComponent } from './components/emg/emg.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [EmgComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -17,7 +18,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
         }
     })
   ],
-  exports: [],
+  exports: [EmgComponent],
   providers: [CardApiService, UploadService, AuthService]
 })
 export class SharedModule { }

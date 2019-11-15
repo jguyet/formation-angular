@@ -1,21 +1,23 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormationComponent } from './formation.component';
+import { EmgComponent } from './emg.component';
+import { ElementRef } from '@angular/core';
 
-describe('FormationComponent', () => {
-  let component: FormationComponent;
-  let fixture: ComponentFixture<FormationComponent>;
+describe('EmgComponent', () => {
+  let component: EmgComponent;
+  let fixture: ComponentFixture<EmgComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormationComponent ]
+      declarations: [ EmgComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormationComponent);
+    fixture = TestBed.createComponent(EmgComponent);
     component = fixture.componentInstance;
+    //component.src = new MockElementRef();
     fixture.detectChanges();
   });
 

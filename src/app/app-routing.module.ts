@@ -27,6 +27,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { GuardGuard } from './guard.guard';
+import { ProjectionComponent } from './components/projection/projection.component';
 
 
 const routes: Routes = [
@@ -74,6 +75,7 @@ const routes: Routes = [
     canLoad: [GuardGuard],
     canActivateChild: [GuardGuard]
   },
+  { path: 'projection', component: ProjectionComponent },
   { path: '', component: FormationComponent }
 ];
 
