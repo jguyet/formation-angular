@@ -13,12 +13,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.   
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-=======
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.   
+
 #### 3. Mon 1er Composant
 [https://github.com/jguyet/formation-angular/tree/new-component](https://github.com/jguyet/formation-angular/tree/new-component)  
 
@@ -37,21 +37,21 @@ TP 2 - Exemples de Binding entre composant parent/enfant :
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-=======
+
 #### 5. Création d'un module (share.module.ts)
 [https://github.com/jguyet/formation-angular/tree/modules](https://github.com/jguyet/formation-angular/tree/modules)
 
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-=======
+
 #### 6. Premier pipe
 [https://github.com/jguyet/formation-angular/tree/pipes](https://github.com/jguyet/formation-angular/tree/pipes)  
 
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-=======
+
 #### 7. Créer un Service
 [https://github.com/jguyet/formation-angular/tree/services](https://github.com/jguyet/formation-angular/tree/services)  
 
