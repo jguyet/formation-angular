@@ -25,9 +25,12 @@ import { DialogueComponent } from './components/dialogue/dialogue.component';
 import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
+import { SimpleSecurityGuard } from './security/simple-security.guard';
 
 
 const routes: Routes = [
+  // Exemple de module lazy loaded
+  { path: 'lazy', loadChildren: () => import('./modules/lazy/lazy.module').then(_ => _.LazyModule) },
   /**
    * {
    *    path: 'le path correspond au chemin depuis la racine courante du routing module (faire attention quand notre routing module et un childModule)',
@@ -38,7 +41,7 @@ const routes: Routes = [
    * },
    */
   { path: 'typography', component: TypographyComponent },
-  { path: 'button', component: ButtonComponent },
+  { path: 'button', component: ButtonComponent, canDeactivate: [SimpleSecurityGuard] },
   { path: 'icon', component: IconComponent },
   { path: 'badge', component: BadgeComponent },
   { path: 'spinner', component: SpinnerComponent },
