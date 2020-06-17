@@ -24,6 +24,7 @@
     "mysql": "^2.16.0",
     "orm": "^5.0.4",
     "sharp": "^0.22.1",
+    "sqlite3": "^4.2.0",
     "swagger-jsdoc": "^3.2.7",
     "swagger-ui-express": "^4.0.2"
   }

@@ -9,7 +9,7 @@ const AccountModel = require("./models/Account");
  */
 module.exports = function(app) {
 
-    app.use(orm.express("mysql://root:tishirt@localhost/formation", {
+    app.use(orm.express("sqlite://./db?pool=true", {
         define: function (db, models) {
             models.card = CardModel(orm, db);
             models.account = AccountModel(orm, db);
