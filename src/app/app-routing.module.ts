@@ -26,6 +26,7 @@ import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
 import { SimpleSecurityGuard } from './security/simple-security.guard';
+import { LunetteComponent } from './components/lunette/lunette.component';
 
 
 const routes: Routes = [
@@ -64,6 +65,8 @@ const routes: Routes = [
   { path: 'storage', component: StorageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cards', component: CardsComponent },
+  { path: 'lunette', component: LunetteComponent },
+  { path: 'admin', loadChildren: () => import("./admin/admin.module").then(m => m.AdminModule) },
   { path: '', component: FormationComponent }
 ];
 

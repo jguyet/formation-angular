@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { StoreModule } from '@ngrx/store';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,6 +36,8 @@ import { SharedModule } from './shared/shared.module';
 import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
+import { LunetteComponent } from './components/lunette/lunette.component';
+import { lunetteReducer } from './reducers/lunette/lunette.reducer';
 
 @NgModule({
   declarations: [
@@ -64,7 +68,8 @@ import { FormationComponent } from './components/formation/formation.component';
     ExampleDialogComponent,
     StorageComponent,
     LoginComponent,
-    FormationComponent
+    FormationComponent,
+    LunetteComponent,
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent],
   imports: [
@@ -74,7 +79,10 @@ import { FormationComponent } from './components/formation/formation.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      lunettes: lunetteReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
