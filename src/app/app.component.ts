@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './shared/security/auth.service';
 
@@ -9,7 +9,24 @@ import { AuthService } from './shared/security/auth.service';
 })
 export class AppComponent { 
 
+    public exempleValue = 1;
+
+    public elementName = '';
+
+    get detectionLogger() {
+      console.log('[appComponent] call of ChangeDetection');
+      return '';
+    }
+
     constructor(public router: Router) {
+
+    }
+
+    forceDetection() {
+      if (this.exempleValue == 3) {
+        this.elementName = 'INPUT VALUE PUSHED';
+      }
+      this.exempleValue += 1;
     }
 
 }

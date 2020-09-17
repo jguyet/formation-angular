@@ -53,6 +53,16 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "productionfr": {
+              "i18nFile": "locale/messages.fr.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "fr"
+            },
+            "productionen": {
+              "i18nFile": "locale/messages.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en"
             }
           }
         },
@@ -64,6 +74,12 @@
           "configurations": {
             "production": {
               "browserTarget": "MaterialDemo:build:production"
+            },
+            "productionfr": {
+              "browserTarget": "MaterialDemo:build:productionfr"
+            },
+            "productionen": {
+              "browserTarget": "MaterialDemo:build:productionen"
             }
           }
         },
