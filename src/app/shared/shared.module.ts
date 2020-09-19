@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { UploadService } from './services/upload.service';
 import { AuthService } from './security/auth.service';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { FleurComponent } from './components/fleur/fleur.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [FleurComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -17,7 +18,9 @@ import { OAuthModule } from 'angular-oauth2-oidc';
         }
     })
   ],
-  exports: [],
+  exports: [
+    FleurComponent
+  ],
   providers: [CardApiService, UploadService, AuthService]
 })
 export class SharedModule { }

@@ -34,6 +34,11 @@ import { SharedModule } from './shared/shared.module';
 import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
+//import { cumulateReducer } from './store/reducers/cumulate.reducer';
+import { MatchComponent } from './components/match/match.component';
+import { JardilandComponent } from './components/jardiland/jardiland.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +69,9 @@ import { FormationComponent } from './components/formation/formation.component';
     ExampleDialogComponent,
     StorageComponent,
     LoginComponent,
-    FormationComponent
+    FormationComponent,
+    MatchComponent,
+    JardilandComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent],
   imports: [
@@ -74,7 +81,13 @@ import { FormationComponent } from './components/formation/formation.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    }),
+    StoreModule.forRoot({
+      //point: cumulateReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

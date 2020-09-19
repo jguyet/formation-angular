@@ -1,0 +1,5 @@
+<p #title>FLEUR (<ng-content></ng-content>)</p>
+<ng-container *ngIf="(src$ | async) as src">
+    <img [src]="'assets/img/fleurs/' + src + '.png'" width="50" height="50" />
+</ng-container>
+<!-- {{ value }} -->
