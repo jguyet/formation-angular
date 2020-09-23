@@ -25,6 +25,10 @@ import { DialogueComponent } from './components/dialogue/dialogue.component';
 import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
+import { Component404 } from './components/404/404.component';
+import { CardDetailComponent } from './components/card-detail/card-detail.component';
+import { ClickComponent } from './components/click/click.component';
+import { DisplayPictureComponent } from './components/display-picture/display-picture.component';
 
 
 const routes: Routes = [
@@ -37,6 +41,8 @@ const routes: Routes = [
    *    redirectTo: 'url of redirection'
    * },
    */
+  { path: 'card/:id', component: CardDetailComponent },
+  { path: 'click', component: ClickComponent },
   { path: 'typography', component: TypographyComponent },
   { path: 'button', component: ButtonComponent },
   { path: 'icon', component: IconComponent },
@@ -61,7 +67,9 @@ const routes: Routes = [
   { path: 'storage', component: StorageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cards', component: CardsComponent },
-  { path: '', component: FormationComponent }
+  { path: 'display', component: DisplayPictureComponent },
+  { path: '', component: FormationComponent },
+  { path: '**', component: Component404 }
 ];
 
 @NgModule({

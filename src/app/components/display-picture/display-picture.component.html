@@ -1,0 +1,10 @@
+<form [formGroup]="formGroup">
+    <input type="text" formControlName="url" />
+    <button (click)="download(urlCtrl.value)" [disabled]="!formGroup.valid">Download</button>
+</form>
+
+{{ urlCtrl.errors | json }}
+
+<ng-container *ngIf="finalUrl">
+    <img [src]="finalUrl" width="100" height="100" />
+</ng-container>

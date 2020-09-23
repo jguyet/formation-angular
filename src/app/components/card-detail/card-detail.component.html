@@ -1,6 +1,4 @@
-<mat-card>Basic Cards</mat-card>
-
-<mat-card *ngFor="let card of cards | async" class="example-card">
+<mat-card *ngIf="(card$ | async) as card" class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"
         [ngStyle]="{'background-image': 'url(../../../assets/img/miel_' + card.type + '.png)'}"></div>
@@ -20,4 +18,5 @@
         <button mat-button><mat-icon color="accent">share</mat-icon></button>
     </mat-card-actions>
 </mat-card>
-<p style="font-size: 0.7em;">(*Bien configurer l'url du serveur dans la configuration des environements.)</p>
+
+<button (click)="changeUrl()">change</button>

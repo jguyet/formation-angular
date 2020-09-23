@@ -34,6 +34,12 @@ import { SharedModule } from './shared/shared.module';
 import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
+import { Component404 } from './components/404/404.component';
+import { CardDetailComponent } from './components/card-detail/card-detail.component';
+import { ClickComponent } from './components/click/click.component';
+import { DisplayPictureComponent } from './components/display-picture/display-picture.component';
+
+
 
 @NgModule({
   declarations: [
@@ -64,7 +70,11 @@ import { FormationComponent } from './components/formation/formation.component';
     ExampleDialogComponent,
     StorageComponent,
     LoginComponent,
-    FormationComponent
+    FormationComponent,
+    Component404,
+    CardDetailComponent,
+    ClickComponent,
+    DisplayPictureComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent],
   imports: [
