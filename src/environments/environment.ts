@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  formationApi: 'http://localhost:8080'
+  formationApi: 'http://formationangular.eu-gb.mybluemix.net'
 };
 
 /*
