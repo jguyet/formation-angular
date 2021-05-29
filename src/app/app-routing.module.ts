@@ -25,6 +25,8 @@ import { DialogueComponent } from './components/dialogue/dialogue.component';
 import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
+import { AddCardComponent } from './components/add-card/add-card.component';
+import { AddReactiveCardComponent } from './components/add-reactive-card/add-reactive-card.component';
 
 
 const routes: Routes = [
@@ -61,6 +63,8 @@ const routes: Routes = [
   { path: 'storage', component: StorageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cards', component: CardsComponent },
+  { path: 'add-card', component: AddCardComponent },
+  { path: 'add-reactive-card', component: AddReactiveCardComponent },
   { path: '', component: FormationComponent }
 ];
 

@@ -1,5 +1,8 @@
 <mat-card>Basic Cards</mat-card>
 
+<a mat-flat-button color="accent" routerLink="/add-card">Add</a>
+<a mat-flat-button color="accent" routerLink="/add-reactive-card">Add</a>
+
 <mat-card *ngFor="let card of cards | async" class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"

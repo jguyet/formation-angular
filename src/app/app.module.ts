@@ -34,6 +34,9 @@ import { SharedModule } from './shared/shared.module';
 import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
+import { AddCardComponent } from './components/add-card/add-card.component';
+import { JsonPipe } from '@angular/common';
+import { AddReactiveCardComponent } from './components/add-reactive-card/add-reactive-card.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,9 @@ import { FormationComponent } from './components/formation/formation.component';
     ExampleDialogComponent,
     StorageComponent,
     LoginComponent,
-    FormationComponent
+    FormationComponent,
+    AddCardComponent,
+    AddReactiveCardComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent],
   imports: [
@@ -76,7 +81,7 @@ import { FormationComponent } from './components/formation/formation.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [JsonPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

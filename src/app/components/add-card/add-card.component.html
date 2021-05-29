@@ -1,0 +1,30 @@
+<h1>Create a new Card</h1>
+<mat-divider></mat-divider>
+<mat-form-field>
+    <mat-label>Name</mat-label>
+    <input [(ngModel)]="name" matInput>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Price</mat-label>
+    <input type="number" min="0" [(ngModel)]="price" matInput>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Type</mat-label>
+    <mat-select [(value)]="type">
+        <ng-container *ngFor="let el of types">
+            <mat-option value="{{ el }}">{{ el }}</mat-option>
+        </ng-container>
+    </mat-select>
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="createCard(name, price, type)" >Done</button>
+
+
+<ng-container *ngIf="error">
+    <mat-divider></mat-divider>
+        <div appApplyColor="red">{{ error }}</div>
+    <mat-divider></mat-divider>
+</ng-container>
+

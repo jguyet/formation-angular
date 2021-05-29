@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { UploadService } from './services/upload.service';
 import { AuthService } from './security/auth.service';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { ApplyColorDirective } from './directives/apply-color.directive';
 
 @NgModule({
-  declarations: [],
+  declarations: [ApplyColorDirective],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -17,7 +18,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
         }
     })
   ],
-  exports: [],
+  exports: [ApplyColorDirective],
   providers: [CardApiService, UploadService, AuthService]
 })
 export class SharedModule { }
