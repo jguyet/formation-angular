@@ -4,7 +4,7 @@ const { Code } = require('../../shared/services/security/Code');
 const multer  = require('multer');
 const MID = require('monotonic-id');
 
-const STORAGE_PATH = '/mnt/storage/';
+const STORAGE_PATH = '/tmp/';
 const StorageController = require("../../application/controllers/StorageController");
 
 const StorageResourceController = {

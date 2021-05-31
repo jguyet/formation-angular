@@ -21,13 +21,14 @@ const OpenIdResourceController = {
             // ValidationStep
         ],
         (req, res) => {
+            var host = "http://formationangular.eu-gb.mybluemix.net";
             res.status(200).send({
-                "issuer": "http://localhost:8080",
-                "authorization_endpoint": "http://localhost:8080/o/oauth2/v2/auth",
-                "token_endpoint": "http://localhost:8080/token",
-                "userinfo_endpoint": "http://localhost:8080/v1/userinfo",
-                "revocation_endpoint": "http://localhost:8080/revoke",
-                "jwks_uri": "http://localhost:8080/o/oauth2/v2/certs",
+                "issuer": host,
+                "authorization_endpoint": `${host}/o/oauth2/v2/auth`,
+                "token_endpoint": `${host}/token`,
+                "userinfo_endpoint": `${host}/v1/userinfo`,
+                "revocation_endpoint": `${host}/revoke`,
+                "jwks_uri": `${host}/o/oauth2/v2/certs`,
                 "response_types_supported": [
                  "code",
                  "token",
