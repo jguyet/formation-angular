@@ -1,0 +1,49 @@
+<mat-vertical-stepper>
+    <ng-template matStepperIcon="edit">
+        <mat-icon>done_outline</mat-icon>
+    </ng-template>
+    <mat-step label="Bienvenue">
+        <p>La formation est représentée ici par cette ligne d'étape réalisée avec mat-step.</p>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Mon Application">
+        <p>Requis: J'ai créé une application.</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Components">
+        <p>Requis: J'ai créé mon premier composant Angular.</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Directives">
+        <p>Requis: J'ai créé ma première directive Angular.</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Modules">
+        <p>Requis: J'ai créé mon premier module Angular</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Pipes">
+        <p>Requis: J'ai créé mon premier pipe</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Services">
+        <p>Requis: J'ai créé mon premier service</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Routing">
+        <p>Requis: J'ai créé ma première route</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button matStepperNext color="primary">Étape suivante</button>
+    </mat-step>
+    <mat-step label="Fin">
+        <p>Bravo la formation est terminée</p>
+        <p>Tu n'as plus qu'a approfondire tes connaissances !</p>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+    </mat-step>
+</mat-vertical-stepper>

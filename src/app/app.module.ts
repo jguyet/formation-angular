@@ -34,9 +34,10 @@ import { SharedModule } from './shared/shared.module';
 import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
+import { FormationBasicComponent } from './components/formation-basic/formation-basic.component';
 
 @NgModule({
-  declarations: [
+  declarations: [ // ICI dans declarations je decrit les composants a declarer
     AppComponent,
     TypographyComponent,
     ButtonComponent,
@@ -64,10 +65,11 @@ import { FormationComponent } from './components/formation/formation.component';
     ExampleDialogComponent,
     StorageComponent,
     LoginComponent,
-    FormationComponent
+    FormationComponent,
+    FormationBasicComponent
   ],
-  entryComponents: [CustomSnackbarComponent, ExampleDialogComponent],
-  imports: [
+  entryComponents: [CustomSnackbarComponent, ExampleDialogComponent], // composant initialisé dés le chargement du module
+  imports: [ // toutes les libs (modules à importer).
     BrowserModule,
     AppRoutingModule,
     SharedModule,
@@ -76,7 +78,9 @@ import { FormationComponent } from './components/formation/formation.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ // Ici je declare mes services.
+    
+  ],
+  bootstrap: [AppComponent] // point d'entrer de l'application
 })
 export class AppModule { }
