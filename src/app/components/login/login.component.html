@@ -2,7 +2,7 @@
    Tu n'est pas connecté
 </h1>
 <h1 *ngIf="authService.isLogged">
-    Tu et connecté
+    Tu est connecté
 </h1>
  
 <button *ngIf="!authService.isLogged" mat-raised-button class="btn btn-default" (click)="login()">
