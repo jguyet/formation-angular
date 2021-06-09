@@ -1,0 +1,6 @@
+<form (submit)="submit()" [formGroup]="cardGroup" >
+    <input type="text" name="title" formControlName="title" />
+    <input type="number" name="price" formControlName="price" />
+    <input type="text" name="type" formControlName="type" />
+    <button type="submit" [disabled]="!cardGroup.valid" >Submit</button>
+</form>

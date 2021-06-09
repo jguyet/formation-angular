@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UploadService } from './services/upload.service';
 import { AuthService } from './security/auth.service';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { AuthGuard } from './security/auth.guard';
 
 @NgModule({
   declarations: [],
@@ -18,6 +19,6 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     })
   ],
   exports: [],
-  providers: [CardApiService, UploadService, AuthService]
+  providers: [CardApiService, UploadService, AuthService, AuthGuard]
 })
 export class SharedModule { }

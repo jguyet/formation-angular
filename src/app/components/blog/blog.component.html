@@ -1,0 +1,16 @@
+<ng-container *ngIf="(articleOfAuthorOfTheMonth$ | async) as articleOfAuthorOfTheMonth else toto">
+    <div *ngFor="let article of articleOfAuthorOfTheMonth">
+        <app-article [article]="article" >
+            <a #a class="github" href="https://github.com/jguyet">github Author</a>
+        </app-article>
+        <!-- <h3>{{ article.title }}</h3>
+        <div>
+            {{ article.content }}
+        </div>
+        <div>{{ article.author }}</div> -->
+    </div>
+</ng-container>
+
+<ng-template #toto>
+    <mat-spinner color="accent"></mat-spinner>
+</ng-template>

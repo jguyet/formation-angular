@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CardApiService } from 'src/app/shared/services/card-api.service';
-import { Observable } from 'rxjs';
+import { interval, Observable, of } from 'rxjs';
 import { Card } from 'src/app/shared/models/card';
+import { mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cards',
@@ -10,12 +11,17 @@ import { Card } from 'src/app/shared/models/card';
 })
 export class CardsComponent implements OnInit {
 
-    public cards: Observable<Card[]>;
+    public cards$: Observable<Card[]>;
 
     constructor(private cardApiService: CardApiService) { }
 
     ngOnInit() {
-        this.cards = this.cardApiService.getCards();
+      this.cards$ = interval(10000)
+        .pipe(
+          mergeMap(() => {
+            return this.cardApiService.getCards();
+          })
+        );
     }
 
 }

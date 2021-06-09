@@ -22,7 +22,7 @@ export class CardApiService {
               console.error(error);
               return [];// return empty card Array
           })
-      ); 
+      );
   }
 
   public createCard(title: string, price: number, type: string): Observable<Card> {
