@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CardApiService {
 
-   private endpoint: string = environment.formationApi;
+   private endpoint: String = environment.formationApi;
 
   constructor(private httpClient: HttpClient) {
 
@@ -25,8 +25,8 @@ export class CardApiService {
       ); 
   }
 
-  public createCard(title: string, price: number, type: string): Observable<Card> {
+  public createCard(title: String, description: String, price: Number, type: String): Observable<Card> {
       return this.httpClient.post<Card>(`${this.endpoint}/card`,
-        new Card(title, price, type));
+        new Card(title, description, price, type));
   }
 }

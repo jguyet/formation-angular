@@ -10,12 +10,11 @@ import { Card } from 'src/app/shared/models/card';
 })
 export class CardsComponent implements OnInit {
 
-    public cards: Observable<Card[]>;
+    public cards$: Observable<Card[]>;
 
     constructor(private cardApiService: CardApiService) { }
 
     ngOnInit() {
-        this.cards = this.cardApiService.getCards();
+      this.cards$ = this.cardApiService.getCards();
     }
-
 }

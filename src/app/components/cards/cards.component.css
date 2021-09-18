@@ -3,8 +3,8 @@ mat-card {
 }
 
 .example-card {
-    max-width: 250px;
-    max-height: 170px;
+    width: 250px;
+    height: 170px;
     margin-bottom: 50px;
     float: left;
 }
@@ -17,6 +17,9 @@ mat-card {
 
 mat-card-actions {
     text-align: end;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
 }
 
 mat-card-title {
