@@ -1,8 +1,8 @@
 <h1 *ngIf="!authService.isLogged">
-   Tu n'est pas connecté
+   Tu n'es pas connecté
 </h1>
 <h1 *ngIf="authService.isLogged">
-    Tu est connecté
+    Tu es connecté
 </h1>
  
 <button *ngIf="!authService.isLogged" mat-raised-button class="btn btn-default" (click)="login()">
