@@ -6,11 +6,15 @@ describe('workspace-project App', () => {
 
   beforeEach(() => {
     page = new AppPage();
+    page.navigateTo();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to MaterialDemo!');
+  it('should display welcome message', async () => {
+    expect(await browser.getTitle()).toEqual("Formation Angular Avances");
+  });
+
+  it('first button should be Formation', () => {
+    expect(page.getFirstButtonText()).toEqual('Formation');
   });
 
   afterEach(async () => {
