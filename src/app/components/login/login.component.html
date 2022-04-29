@@ -5,10 +5,7 @@
     Tu es connecté
 </h1>
  
-<button *ngIf="!authService.isLogged" mat-raised-button class="btn btn-default" (click)="login()">
-    Login
-</button>
-<button *ngIf="authService.isLogged" mat-raised-button class="btn btn-default" (click)="logoff()">
-    Logout
+<button [@logged]="!authService.isLogged ? 'false' : 'true'" mat-raised-button class="btn btn-default" (click)="!authService.isLogged ? login() : logoff()">
+    {{ !authService.isLogged ? 'Login' : 'Logout' }}
 </button>
 <p style="font-size: 0.7em;">(*Bien configurer l'url du serveur de connexion dans la configuration des environements.)</p>
