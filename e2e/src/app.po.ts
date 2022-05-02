@@ -9,5 +9,9 @@ export class AppPage {
     return $$('li a').first().getText() as Promise<string>;
   }
 
-  
+  getCardButton() {
+    return $$('li a').get(1);
+  }
+
+
 }

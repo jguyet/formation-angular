@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { $$, browser, By, logging, until } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -10,11 +10,19 @@ describe('workspace-project App', () => {
   });
 
   it('should display welcome message', async () => {
-    expect(await browser.getTitle()).toEqual("Formation Angular Avances");
+    expect(await browser.getTitle()).toEqual('Formation Angular Avances');
   });
 
   it('first button should be Formation', () => {
     expect(page.getFirstButtonText()).toEqual('Formation');
+  });
+
+  it('first Card should be sfsfsff', (done) => {
+    page.getCardButton().click().then(() => {
+      // browser.sleep(5000);
+      expect($$('mat-card mat-card-title').first().getText()).toEqual('sfsfsff');
+      done();
+    });
   });
 
   afterEach(async () => {
