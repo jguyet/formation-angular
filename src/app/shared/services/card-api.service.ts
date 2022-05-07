@@ -17,7 +17,7 @@ export class CardApiService {
   }
 
   public getCards(): Observable<Card[]> {
-      return this.httpClient.get<Card[]>(`${this.endpoint}/search_query`).pipe(
+      return this.httpClient.get<Card[]>(`${this.endpoint}/search_query?size=1000`).pipe(
           catchError((error) => {
               console.error(error);
               return [];// return empty card Array
@@ -28,5 +28,13 @@ export class CardApiService {
   public createCard(title: String, description: String, price: Number, type: String): Observable<Card> {
       return this.httpClient.post<Card>(`${this.endpoint}/card`,
         new Card(title, description, price, type));
+  }
+
+  public randomCardId(): Observable<string> {
+    return this.httpClient.get(`${environment.formationApi}/random-card-id`, { responseType: 'text'});
+  }
+
+  public getCardById(id: string): Observable<Card> {
+    return this.httpClient.get<Card>(`${environment.formationApi}/card/${id}`);
   }
 }

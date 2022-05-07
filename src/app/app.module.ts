@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +35,7 @@ import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
 import { FormationBasicComponent } from './components/formation-basic/formation-basic.component';
+import { RandomHoneyPotComponent } from './components/random-honey-pot/random-honey-pot.component';
 
 @NgModule({
   declarations: [ // ICI dans declarations je decrit les composants a declarer
@@ -66,7 +67,8 @@ import { FormationBasicComponent } from './components/formation-basic/formation-
     StorageComponent,
     LoginComponent,
     FormationComponent,
-    FormationBasicComponent
+    FormationBasicComponent,
+    RandomHoneyPotComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent], // composant initialisé dés le chargement du module
   imports: [ // toutes les libs (modules à importer).
@@ -79,7 +81,6 @@ import { FormationBasicComponent } from './components/formation-basic/formation-
     ReactiveFormsModule
   ],
   providers: [ // Ici je declare mes services.
-    
   ],
   bootstrap: [AppComponent] // point d'entrer de l'application
 })

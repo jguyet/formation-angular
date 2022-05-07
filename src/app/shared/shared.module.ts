@@ -5,9 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { UploadService } from './services/upload.service';
 import { AuthService } from './security/auth.service';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { LifeComponent } from './components/life/life.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    LifeComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -17,7 +20,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
         }
     })
   ],
-  exports: [],
+  exports: [LifeComponent],
   providers: [CardApiService, UploadService, AuthService]
 })
 export class SharedModule { }
