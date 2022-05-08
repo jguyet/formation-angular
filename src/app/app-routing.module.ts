@@ -26,6 +26,8 @@ import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
 import { FormationBasicComponent } from './components/formation-basic/formation-basic.component';
+import { FormulaireComponent } from './components/formulaire/formulaire.component';
+import { StatsComponent } from './components/stats/stats.component';
 
 
 const routes: Routes = [
@@ -62,6 +64,8 @@ const routes: Routes = [
   { path: 'storage', component: StorageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cards', component: CardsComponent },
+  { path: 'formulaire', component: FormulaireComponent },
+  { path: 'stats', component: StatsComponent },
   { path: '', component: FormationBasicComponent }
 ];
 

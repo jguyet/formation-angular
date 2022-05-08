@@ -1,0 +1,30 @@
+<mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+        <mat-panel-title (click)="$event.stopPropagation();">
+            <div style="text-overflow: ellipsis;">Formulaire Pré-Formation</div>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+
+
+    <form *ngIf="formationForm" (ngSubmit)="submitForm();" [formGroup]="formationForm">
+        <mat-grid-list cols="2" rowHeight="1:0.4">
+            <ng-container *ngFor="let question of questions">
+                <mat-grid-tile >
+                    <label id="example-radio-group-label">{{ question.q }}</label><br>
+                    <mat-radio-group aria-labelledby="example-radio-group-label" [formControlName]="question.id">
+                        <mat-radio-button *ngFor="let r of question.r" [value]="r.key" color="accent">{{ r.value }}</mat-radio-button> 
+                    </mat-radio-group>
+                </mat-grid-tile>
+            </ng-container>
+        </mat-grid-list>
+    
+        <button *ngIf="!completed" type="submit" [disabled]="formationForm.invalid" mat-raised-button class="btn btn-default full-width">
+            Valider
+        </button>
+
+        <div *ngIf="completed" class="full-width" style="text-align: center;"><label>Formulaire complété avec succès</label></div>
+
+    </form>
+
+    
+</mat-expansion-panel>

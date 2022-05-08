@@ -1,0 +1,26 @@
+form {
+    margin-left: 3em;
+    margin-top: 1.5em;
+    position: relative;
+}
+
+mat-form-field {
+    margin-top: 1.5em;
+}
+
+.full-width {
+    width: 100%;
+}
+
+mat-radio-button {
+    display: block;
+    margin: 0.5em;
+}
+
+mat-radio-group.ng-invalid mat-radio-button.mat-radio-checked {
+    color: red;
+}
+
+mat-radio-group {
+    margin-top: 1.5em;
+}

@@ -1,0 +1,9 @@
+<ng-container *ngIf="(stats$ | async) as stats">
+
+    <ng-container *ngFor="let questionData of stats.data | keyvalue">
+        {{ questionData.value.q }} ( {{ (questionData.value.v * 100 / stats.participants) / 100 | percent: '.0' }} )
+        <mat-progress-bar mode="determinate" [value]="questionData.value.v * 100 / stats.participants"></mat-progress-bar>
+    </ng-container>
+
+    <div class="text-center">{{ stats.participants }} participants.</div>
+</ng-container>

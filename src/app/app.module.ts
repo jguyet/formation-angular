@@ -35,6 +35,8 @@ import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormationComponent } from './components/formation/formation.component';
 import { FormationBasicComponent } from './components/formation-basic/formation-basic.component';
+import { FormulaireComponent } from './components/formulaire/formulaire.component';
+import { StatsComponent } from './components/stats/stats.component';
 
 @NgModule({
   declarations: [ // ICI dans declarations je decrit les composants a declarer
@@ -66,7 +68,9 @@ import { FormationBasicComponent } from './components/formation-basic/formation-
     StorageComponent,
     LoginComponent,
     FormationComponent,
-    FormationBasicComponent
+    FormationBasicComponent,
+    FormulaireComponent,
+    StatsComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent], // composant initialisé dés le chargement du module
   imports: [ // toutes les libs (modules à importer).
