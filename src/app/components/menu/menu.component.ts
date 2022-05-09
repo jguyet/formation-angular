@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  arriveDansLeFuture: Promise<string[]>;
+
+  constructor() {
+    this.arriveDansLeFuture = new Promise((resolve) => {
+      resolve(['element1', 'element2', 'element3']);
+    });
+  }
 
   ngOnInit() {
   }

@@ -29,4 +29,12 @@ export class CardApiService {
       return this.httpClient.post<Card>(`${this.endpoint}/card`,
         new Card(title, description, price, type));
   }
+
+  public getRandomCardId(): Observable<string> {
+    return this.httpClient.get(`${environment.formationApi}/random-card-id`, { responseType: 'text' });
+  }
+
+  public getCardById(id: string): Observable<Card> {
+    return this.httpClient.get<Card>(`${this.endpoint}/card/${id}`); 
+  }
 }

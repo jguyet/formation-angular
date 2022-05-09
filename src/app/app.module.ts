@@ -37,6 +37,7 @@ import { FormationComponent } from './components/formation/formation.component';
 import { FormationBasicComponent } from './components/formation-basic/formation-basic.component';
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { RandomHoneyPotComponent } from './components/random-honey-pot/random-honey-pot.component';
 
 @NgModule({
   declarations: [ // ICI dans declarations je decrit les composants a declarer
@@ -70,7 +71,8 @@ import { StatsComponent } from './components/stats/stats.component';
     FormationComponent,
     FormationBasicComponent,
     FormulaireComponent,
-    StatsComponent
+    StatsComponent,
+    RandomHoneyPotComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent], // composant initialisé dés le chargement du module
   imports: [ // toutes les libs (modules à importer).

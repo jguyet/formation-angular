@@ -1,4 +1,4 @@
-<mat-menu #appMenu="matMenu">
+<!-- <mat-menu #appMenu="matMenu">
     <button mat-menu-item [matMenuTriggerFor]="frontendSubMenu">FrontEnd</button>
     <button mat-menu-item [matMenuTriggerFor]="backendSubMenu">BackEnd</button>
 </mat-menu>
@@ -14,4 +14,10 @@
     <button mat-menu-item>Nodejs</button>
     <button mat-menu-item>Spring Boot</button>
     <button mat-menu-item>Django</button>
-</mat-menu>
+</mat-menu> -->
+
+<ng-container *ngIf="(arriveDansLeFuture | async) as maVariable">
+    <ul>
+        <li *ngFor="let element of maVariable">{{ element }}</li>
+    </ul>
+</ng-container>
