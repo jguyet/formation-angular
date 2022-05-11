@@ -36,3 +36,11 @@ mat-card-content {
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
+
+.delete-card {
+  position: absolute;
+  color: red;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}

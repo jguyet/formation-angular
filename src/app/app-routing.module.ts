@@ -29,6 +29,7 @@ import { FormationBasicComponent } from './components/formation-basic/formation-
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { RandomHoneyPotComponent } from './components/random-honey-pot/random-honey-pot.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 
 const routes: Routes = [
@@ -68,6 +69,7 @@ const routes: Routes = [
   { path: 'formulaire', component: FormulaireComponent },
   { path: 'stats', component: StatsComponent },
   { path: 'random-honey', component: RandomHoneyPotComponent },
+  { path: 'redux', component: CounterComponent },
   { path: '', component: FormationBasicComponent }
 ];
 

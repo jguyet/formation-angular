@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +38,20 @@ import { FormationBasicComponent } from './components/formation-basic/formation-
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { RandomHoneyPotComponent } from './components/random-honey-pot/random-honey-pot.component';
+import { registerLocaleData } from '@angular/common';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import localFr from '@angular/common/locales/fr';
+import localEn from '@angular/common/locales/en';
+import { environment } from 'src/environments/environment';
+import { CardEffectsService } from './redux/effects/card-effects.service';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { cardReducer } from './redux/card-reducer';
+import { CounterComponent } from './components/counter/counter.component';
+import { counterReducer } from './redux/counter-reducer';
+
+registerLocaleData(localFr, 'fr');
+registerLocaleData(localEn, 'en');
 
 @NgModule({
   declarations: [ // ICI dans declarations je decrit les composants a declarer
@@ -72,7 +86,8 @@ import { RandomHoneyPotComponent } from './components/random-honey-pot/random-ho
     FormationBasicComponent,
     FormulaireComponent,
     StatsComponent,
-    RandomHoneyPotComponent
+    RandomHoneyPotComponent,
+    CounterComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent], // composant initialisé dés le chargement du module
   imports: [ // toutes les libs (modules à importer).
@@ -82,10 +97,15 @@ import { RandomHoneyPotComponent } from './components/random-honey-pot/random-ho
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      cards: cardReducer,
+      counter: counterReducer
+    }),
+    EffectsModule.forRoot([CardEffectsService])
   ],
   providers: [ // Ici je declare mes services.
-    
+    { provide: LOCALE_ID, useValue: 'en-US' }
   ],
   bootstrap: [AppComponent] // point d'entrer de l'application
 })

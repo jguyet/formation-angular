@@ -37,4 +37,8 @@ export class CardApiService {
   public getCardById(id: string): Observable<Card> {
     return this.httpClient.get<Card>(`${this.endpoint}/card/${id}`); 
   }
+
+  public deleteOneCard(id: string): Observable<Card> {
+    return this.httpClient.delete<Card>(`${this.endpoint}/card/${id}`);
+  }
 }
