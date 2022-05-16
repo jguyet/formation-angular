@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
+import { Card } from 'src/app/shared/models/card';
 import { CardApiService } from 'src/app/shared/services/card-api.service';
-import { getCards, setCards, setCardsError, deleteOneCard, deleteOneCardError } from '../card-actions';
+import { getCards, setCards, setCardsError, deleteOneCard, deleteOneCardError  } from '../card-actions';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,9 @@ export class CardEffectsService {
       ofType(getCards),
       mergeMap(() => {
         console.log('effect');
-        return this.cardApiService.getCards()
+        let card = new Card('t1', 'djdjdj', 10, '500');
+        card.id = 'dididi';
+        return of([card])//this.cardApiService.getCards()
         .pipe(
           map(cards => (setCards({ cards: cards }))),
           catchError(() => of(setCardsError()))

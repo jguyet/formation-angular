@@ -1,4 +1,5 @@
 export class Card {
+    public id: string;
     constructor(
         public title: String,
         public description: String,

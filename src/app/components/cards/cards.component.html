@@ -1,21 +1,28 @@
 <mat-card>Basic Cards</mat-card>
 <p style="font-size: 0.7em;">(*Bien configurer l'url du serveur dans la configuration des environements.)</p>
-<mat-card *ngFor="let card of cards$ | async" class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"
-        [ngStyle]="{'background-image': 'url(../../../assets/img/miel_' + card.type + '.png)'}"></div>
-      <mat-card-title>{{ card.title }}</mat-card-title>
-      <mat-card-subtitle>{{ card.price | currency:'EUR' }}</mat-card-subtitle>
-    </mat-card-header>
-    <!-- <img mat-card-image src="../../../assets/img/miel_orange.png" alt="du bon miel ca race !"> -->
-    <mat-card-content>
-      <p>{{ card?.description ? card.description : "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\
-        bred for hunting." }}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button color="link"><mat-icon color="primary">thumb_up_alt</mat-icon></button>
-    </mat-card-actions>
-    <a class="delete-card" (click)="delete(card.id)" >X</a>
-</mat-card>
+<ng-container *ngIf="(cards$ | async) as cardsOrError">
+  <ng-container *ngIf="cardsOrError.cards else errorTemp">
+    <mat-card *ngFor="let card of cardsOrError.cards" class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"
+            [ngStyle]="{'background-image': 'url(../../../assets/img/miel_' + card.type + '.png)'}"></div>
+          <mat-card-title>{{ card.title }}</mat-card-title>
+          <mat-card-subtitle>{{ card.price | currency:'EUR' }}</mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="../../../assets/img/miel_orange.png" alt="du bon miel ca race !"> -->
+        <mat-card-content>
+          <p>{{ card?.description ? card.description : "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\
+            bred for hunting." }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button color="link"><mat-icon color="primary">thumb_up_alt</mat-icon></button>
+        </mat-card-actions>
+        <a class="delete-card" (click)="delete(card.id)" >X</a>
+    </mat-card>
+  </ng-container>
+  <ng-template #errorTemp>
+    {{ cardsOrError.error }}
+  </ng-template>
+</ng-container>

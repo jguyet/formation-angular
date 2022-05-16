@@ -12,9 +12,9 @@ import { deleteOneCard, getCards } from 'src/app/redux/card-actions';
 })
 export class CardsComponent implements OnInit {
 
-    public cards$: Observable<Card[]>;
+    public cards$: Observable<{ cards?: Card[], error?: string }>;
 
-    constructor(private store: Store<{ cards: Card[] }>) {
+    constructor(private store: Store<{ cards: { cards?: Card[], error?: string } }>) {
       this.cards$ = store.select('cards');
       store.dispatch(getCards());
     }
