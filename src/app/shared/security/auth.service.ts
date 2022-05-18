@@ -35,12 +35,12 @@ export class AuthService {
         // Lancement de la recupération de la configuration oauth2
         this.oauthService.loadDiscoveryDocument(`${oauth2Config.issuer}/.well-known/openid-configuration`).then((e) => {
             // Callback connection implicit
-            this.oauthService.tryLoginImplicitFlow().then(e => {
-                if (e === true) {
+            this.oauthService.tryLoginImplicitFlow().then(e2 => {
+                if (e2 === true) {
                     console.log('LoginTryingWithSuccess', this.oauthService.getAccessToken());
                 }
-            }, e => {
-                console.log('ErrorTryLoginImplicitFlow', e);
+            }, e3 => {
+                console.log('ErrorTryLoginImplicitFlow', e3);
             });
         }, (e) => {
             console.log('ErrorLoadDiscoveryDocument', e);

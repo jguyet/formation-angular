@@ -1,0 +1,9 @@
+<ng-container *ngIf="(cards$ | async) as cards">
+    <ul>
+        <li *ngFor="let card of cards">{{ card.title }}</li>
+    </ul>
+</ng-container>
+
+<ng-template #empty>
+    <mat-spinner color="accent"></mat-spinner>
+</ng-template>

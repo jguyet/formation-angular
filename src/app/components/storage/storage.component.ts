@@ -17,7 +17,7 @@ export class StorageComponent implements OnDestroy {
     /** type = progress | complete | unknown | error */
     public uploadResponse: any = { type: '', status: '', progress: 0, message: '', content: '', error: '' };
 
-    public imgFile: BehaviorSubject<String> = new BehaviorSubject(null);
+    public imgFile: BehaviorSubject<string> = new BehaviorSubject(null);
 
     private subscription: Subscription = new Subscription();
 
@@ -34,12 +34,12 @@ export class StorageComponent implements OnDestroy {
     onFileChange(event) {
         if (event.target.files.length > 0) {
           const file = event.target.files[0];
-          if (file.type.indexOf('image') != -1) {
-            var parent = this;
-            var reader = new FileReader();
+          if (file.type.indexOf('image') !== -1) {
+            const parent = this;
+            const reader = new FileReader();
             reader.readAsDataURL(file);
-            reader.onloadend = function() {
-                parent.imgFile.next(reader.result as String);
+            reader.onloadend = () => {
+                parent.imgFile.next(reader.result as string);
             };
           } else {
             this.imgFile.next(null);

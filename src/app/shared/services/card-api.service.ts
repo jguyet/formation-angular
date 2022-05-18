@@ -10,23 +10,33 @@ import { environment } from 'src/environments/environment';
 })
 export class CardApiService {
 
-   private endpoint: String = environment.formationApi;
-
   constructor(private httpClient: HttpClient) {
 
   }
 
   public getCards(): Observable<Card[]> {
-      return this.httpClient.get<Card[]>(`${this.endpoint}/search_query`).pipe(
+      return this.httpClient.get<Card[]>(`${environment.formationApi}/search_query?page=1&size=1000`).pipe(
           catchError((error) => {
               console.error(error);
-              return [];// return empty card Array
+              return []; // return empty card Array
           })
-      ); 
+      );
   }
 
-  public createCard(title: String, description: String, price: Number, type: String): Observable<Card> {
-      return this.httpClient.post<Card>(`${this.endpoint}/card`,
+  public createCard(title: string, description: string, price: number, type: string): Observable<Card> {
+      return this.httpClient.post<Card>(`${environment.formationApi}/card`,
         new Card(title, description, price, type));
+  }
+
+  public getRandomCardId(): Observable<string> {
+    return this.httpClient.get(`${environment.formationApi}/random-card-id`, { responseType: 'text' });
+  }
+
+  public getCardById(cardId: string): Observable<Card> {
+    return this.httpClient.get<Card>(`${environment.formationApi}/card/${cardId}`);
+  }
+
+  public removeCardById(cardId: string): Observable<Card> {
+    return this.httpClient.delete<Card>(`${environment.formationApi}/card/${cardId}`);
   }
 }

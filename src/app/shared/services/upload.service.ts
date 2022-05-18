@@ -14,8 +14,8 @@ export class UploadService {
     constructor(public httpClient: HttpClient) { }
 
     public upload(data): Observable<{ type: any, status: string, progress?: number, message?: string, content?: string, error?: any; }> {
-        let uploadURL = `${this.endpoint}/storage`;
-    
+        const uploadURL = `${this.endpoint}/storage`;
+
         return this.httpClient.post<any>(uploadURL, data, {
           reportProgress: true,
           observe: 'events'
@@ -28,7 +28,7 @@ export class UploadService {
                 switch (event.type) {
                     case HttpEventType.UploadProgress:
                     const progress = Math.round(100 * event.loaded / event.total);
-                    return { type: event.type, status: 'progress', progress: progress };
+                    return { type: event.type, status: 'progress', progress };
                     case HttpEventType.Response:
                     return { type: event.type, status: 'complete', content: event.body };
                     default:

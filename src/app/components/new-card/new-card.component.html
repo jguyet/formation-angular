@@ -1,0 +1,23 @@
+<form (ngSubmit)="validateForm();" [formGroup]="cardFormGroup">
+
+    <div>
+        <input type="text" formControlName="title">
+        <div *ngIf="cardFormGroup.controls['title'].hasError('error')">{{ cardFormGroup.controls['title'].errors['error'] }}</div>
+    </div>
+
+    <div>
+        <input type="text" formControlName="description">
+    </div>
+
+    <div>
+        <input type="number" formControlName="price">
+    </div>
+
+    <div>
+        <input type="text" formControlName="type">
+    </div>
+
+    <button type="submit" [disabled]="cardFormGroup.invalid" >Create Card</button>
+</form>
+
+<button (click)="test();">test</button>

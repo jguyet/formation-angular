@@ -1,0 +1,20 @@
+<ng-container *ngIf="(card$ | async) as card">
+    {{ card | json }}
+    <!-- <mat-card-header>
+        <div mat-card-avatar class="example-header-image"
+          [ngStyle]="{'background-image': 'url(../../../assets/img/miel_' + card.type + '.png)'}"></div>
+        <mat-card-title>{{ card.title }}</mat-card-title>
+        <mat-card-subtitle>{{ card.price | currency:'EUR' }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ card?.description ? card.description : "The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\
+          bred for hunting." }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+          <button mat-button color="link"><mat-icon color="primary">thumb_up_alt</mat-icon></button>
+      </mat-card-actions> -->
+</ng-container>
+
+<button (click)="random();">random</button>

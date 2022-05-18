@@ -14,13 +14,13 @@ export class FormulaireComponent implements OnInit {
 
   public questions: Question[];
   public formationForm: FormGroup;
-  public completed: boolean = false;
+  public completed = false;
 
   private invalidFieldDisplayer = (id: string): ValidatorFn => {
     return (control: AbstractControl): (ValidationErrors | null) => {
-      if (!this.completed) return null;
-      if (control.value != this.questions.find(x => x.id === id).r.find(x => x.valid == true).key) {
-        return { invalid: true }
+      if (!this.completed) { return null; }
+      if (control.value !== this.questions.find(x => x.id === id).r.find(x => x.valid === true).key) {
+        return { invalid: true };
       }
       return null;
     };
@@ -30,27 +30,27 @@ export class FormulaireComponent implements OnInit {
   }
 
   async ngOnInit() {
-    let qs = await this.formulaireService.getQuestions().pipe(take(1)).toPromise();
+    const qs = await this.formulaireService.getQuestions().pipe(take(1)).toPromise();
     this.createDynamicForm(qs);
   }
 
   createDynamicForm(questions: Question[]): void {
-    let formConfig = {};
+    const formConfig = {};
 
-    let storageFormData = localStorage.getItem('form') !== undefined ? JSON.parse(localStorage.getItem('form')) : undefined;
+    const storageFormData = localStorage.getItem('form') !== undefined ? JSON.parse(localStorage.getItem('form')) : undefined;
 
-    for (let i = 0; i < questions.length; i++) {
-      let defaultValue = undefined;
-      if (storageFormData != null && storageFormData[questions[i].id] != undefined) {
-        defaultValue = storageFormData[questions[i].id];
+    questions.forEach((question) => {
+      let defaultValue;
+      if (storageFormData !== null && storageFormData[question.id] !== undefined) {
+        defaultValue = storageFormData[question.id];
       }
-      formConfig[questions[i].id] = this.fb.control(defaultValue, [
-        Validators.required, this.invalidFieldDisplayer(questions[i].id)
+      formConfig[question.id] = this.fb.control(defaultValue, [
+        Validators.required, this.invalidFieldDisplayer(question.id)
       ]);
-    }
+    });
     this.formationForm = this.fb.group(formConfig);
     this.questions = questions;
-    if (storageFormData != undefined) {
+    if (storageFormData !== undefined) {
       this.completed = true;
     }
   }
@@ -66,7 +66,7 @@ export class FormulaireComponent implements OnInit {
 
   setErrors() {
     this.questions.forEach(x => {
-      if (this.formationForm.value[x.id] != x.r.find(r => r.valid === true).key) {
+      if (this.formationForm.value[x.id] !== x.r.find(r => r.valid === true).key) {
         this.formationForm.controls[x.id].setErrors({
           invalid: true
         });

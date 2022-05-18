@@ -17,7 +17,7 @@ export class FormulaireService {
     return this.httpClient.get<any[]>(`${environment.formationApi}/formulaire`).pipe(
         catchError((error) => {
             console.error(error);
-            return [];// return empty Array
+            return []; // return empty Array
         })
     );
   }

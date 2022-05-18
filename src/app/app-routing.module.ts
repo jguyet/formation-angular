@@ -28,18 +28,13 @@ import { FormationComponent } from './components/formation/formation.component';
 import { FormationBasicComponent } from './components/formation-basic/formation-basic.component';
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { ExempleComponent } from './components/exemple/exemple.component';
+import { RandomHoneyPotComponent } from './components/random-honey-pot/random-honey-pot.component';
+import { NewCardComponent } from './components/new-card/new-card.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 
 const routes: Routes = [
-  /**
-   * {
-   *    path: 'le path correspond au chemin depuis la racine courante du routing module (faire attention quand notre routing module et un childModule)',
-   *    component: Composant a projeter
-   *    loadChildren: chemin de votre childModule (permet de faire du lazy loading),
-   *    pathMatch: 'full' ou 'prefix' permet gerer une certaine pertinance sur des path (principalement entre routingModule enfant/parent)
-   *    redirectTo: 'url of redirection'
-   * },
-   */
   { path: 'typography', component: TypographyComponent },
   { path: 'button', component: ButtonComponent },
   { path: 'icon', component: IconComponent },
@@ -66,11 +61,26 @@ const routes: Routes = [
   { path: 'cards', component: CardsComponent },
   { path: 'formulaire', component: FormulaireComponent },
   { path: 'stats', component: StatsComponent },
+  { path: 'exemple', component: ExempleComponent },
+  { path: 'random', component: RandomHoneyPotComponent },
+  { path: 'counter', component: CounterComponent },
+  {
+    path: 'create',
+    component: NewCardComponent,
+    // canActivate: [] // Pour verifier des droits
+    // canDeactivate: [] // Pour verifier la sortie d'un composant
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(x => x.AdminModule),
+    // canLoad: [] // verifier avant le chargement du module lazy loadé
+    // canActivateChild: [] // verifier pour toutes les sous routes
+  },
   { path: '', component: FormationBasicComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

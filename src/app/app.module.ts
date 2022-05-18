@@ -37,6 +37,18 @@ import { FormationComponent } from './components/formation/formation.component';
 import { FormationBasicComponent } from './components/formation-basic/formation-basic.component';
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { ExempleComponent } from './components/exemple/exemple.component';
+import { HoverEffectDirective } from './hover-effect.directive';
+import { RandomHoneyPotComponent } from './components/random-honey-pot/random-honey-pot.component';
+import { NewCardComponent } from './components/new-card/new-card.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { counterReducer } from './redux/counter/counter.reducer';
+import { environment } from 'src/environments/environment';
+import { CounterComponent } from './components/counter/counter.component';
+import { cardsReducer } from './redux/cards/cards.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { CardsEffects } from './redux/cards/cards.effects';
 
 @NgModule({
   declarations: [ // ICI dans declarations je decrit les composants a declarer
@@ -70,7 +82,12 @@ import { StatsComponent } from './components/stats/stats.component';
     FormationComponent,
     FormationBasicComponent,
     FormulaireComponent,
-    StatsComponent
+    StatsComponent,
+    ExempleComponent,
+    HoverEffectDirective,
+    RandomHoneyPotComponent,
+    NewCardComponent,
+    CounterComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent], // composant initialisé dés le chargement du module
   imports: [ // toutes les libs (modules à importer).
@@ -80,10 +97,22 @@ import { StatsComponent } from './components/stats/stats.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      count: counterReducer,
+      cards: cardsReducer
+    }),
+    EffectsModule.forRoot([
+      CardsEffects
+    ]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+      autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+    })
   ],
   providers: [ // Ici je declare mes services.
-    
+
   ],
   bootstrap: [AppComponent] // point d'entrer de l'application
 })
