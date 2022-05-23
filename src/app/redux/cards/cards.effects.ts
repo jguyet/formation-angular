@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { CardApiService } from "src/app/shared/services/card-api.service";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { getCards, removeCard, setCards } from "./cards.actions";
-import { map, mergeMap, tap } from "rxjs/operators";
+import { getCards, removeCard, setCards, setErrors } from "./cards.actions";
+import { catchError, map, mergeMap, tap } from "rxjs/operators";
+import { of } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -15,6 +16,9 @@ export class CardsEffects {
         mergeMap(() => this.cardApiService.getCards()),
         map(cards => {
             return setCards({ cards: cards });
+        }),
+        catchError(() => {
+            return of(setErrors({ errors: ['Api offline'] }));
         })
       )
     )
@@ -25,7 +29,10 @@ export class CardsEffects {
         mergeMap((action) => {
             return this.cardApiService.removeCardById(action.id);
         }),
-        map((_card) => {
+        catchError(() => {
+            return of(setErrors({ errors: ['Already removed'] }));
+        }),
+        map((card) => {
             return getCards();
         })
       )

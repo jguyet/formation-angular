@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Card } from 'src/app/shared/models/card';
 import { Store } from '@ngrx/store';
 import { getCards, removeCard } from 'src/app/redux/cards/cards.actions';
+import { CardStoreState } from 'src/app/redux/cards/cards.reducer';
 
 @Component({
   selector: 'app-cards',
@@ -12,9 +13,9 @@ import { getCards, removeCard } from 'src/app/redux/cards/cards.actions';
 })
 export class CardsComponent implements OnInit {
 
-    public cards$: Observable<Card[]>;
+    public cards$: Observable<CardStoreState>;
 
-    constructor(public store: Store<{ cards: Card[] }>) {
+    constructor(public store: Store<{ cards: CardStoreState }>) {
       this.cards$ = store.select('cards');
       this.store.dispatch(getCards());
     }

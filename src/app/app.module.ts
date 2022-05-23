@@ -49,6 +49,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { cardsReducer } from './redux/cards/cards.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { CardsEffects } from './redux/cards/cards.effects';
+import { IpComponent } from './components/ip/ip.component';
 
 @NgModule({
   declarations: [ // ICI dans declarations je decrit les composants a declarer
@@ -87,7 +88,8 @@ import { CardsEffects } from './redux/cards/cards.effects';
     HoverEffectDirective,
     RandomHoneyPotComponent,
     NewCardComponent,
-    CounterComponent
+    CounterComponent,
+    IpComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent], // composant initialisé dés le chargement du module
   imports: [ // toutes les libs (modules à importer).

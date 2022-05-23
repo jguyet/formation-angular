@@ -7,3 +7,4 @@ export const removeCard = createAction('[Cards Component] Remove Card', props<{ 
 
 // coté effect
 export const setCards = createAction('[Cards Component] Set Cards', props<{ cards: Card[] }>());
+export const setErrors = createAction('[Cards Component] Set Error', props<{ errors: string[] }>());
