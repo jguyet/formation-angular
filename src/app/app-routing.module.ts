@@ -28,6 +28,7 @@ import { FormationComponent } from './components/formation/formation.component';
 import { FormationBasicComponent } from './components/formation-basic/formation-basic.component';
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { RxjsComponent } from './components/rxjs/rxjs.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,7 @@ const routes: Routes = [
   { path: 'cards', component: CardsComponent },
   { path: 'formulaire', component: FormulaireComponent },
   { path: 'stats', component: StatsComponent },
+  { path: 'rxjs', component: RxjsComponent },
   { path: '', component: FormationBasicComponent }
 ];
 
