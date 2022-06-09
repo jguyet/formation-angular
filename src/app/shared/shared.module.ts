@@ -5,9 +5,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { UploadService } from './services/upload.service';
 import { AuthService } from './security/auth.service';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { InputErrorPipe } from './pipes/input-error.pipe';
+import { ColoredComponent } from './components/colored/colored.component';
+import { CardAccordionComponent } from './components/card-accordion/card-accordion.component';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    InputErrorPipe,
+    ColoredComponent,
+    CardAccordionComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -15,9 +23,14 @@ import { OAuthModule } from 'angular-oauth2-oidc';
         resourceServer: {
             sendAccessToken: true
         }
-    })
+    }),
+    CdkAccordionModule
   ],
-  exports: [],
+  exports: [
+    InputErrorPipe,
+    ColoredComponent,
+    CardAccordionComponent
+  ],
   providers: [CardApiService, UploadService, AuthService]
 })
 export class SharedModule { }

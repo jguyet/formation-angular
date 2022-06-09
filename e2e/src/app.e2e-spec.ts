@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { $$, browser, By, logging, until } from 'protractor';
+import { $, $$, browser, By, ElementArrayFinder, ElementHelper, logging, until } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -13,16 +13,26 @@ describe('workspace-project App', () => {
     expect(await browser.getTitle()).toEqual('Formation Angular Avances');
   });
 
-  it('first button should be Formation', () => {
-    expect(page.getFirstButtonText()).toEqual('Formation');
-  });
+  // it('first button should be Formation', () => {
+  //   expect(page.getFirstButtonText()).toEqual('Formation');
+  // });
 
-  it('first Card should be sfsfsff', (done) => {
-    page.getCardButton().click().then(() => {
-      // browser.sleep(5000);
-      expect($$('mat-card mat-card-title').first().getText()).toEqual('sfsfsff');
-      done();
-    });
+  it('first Card should be j\'ai faim', async () => {
+    
+    browser.sleep(1000);
+    // step 1
+    (await $$('mat-icon').get(0).click());
+
+    browser.sleep(1000);
+    // step 2
+    (await $('a[routerLink="/cards"]').click());
+
+    browser.sleep(1000);
+    // step 3
+    const textFirstElement = (await $$('cdk-accordion-item div span').get(1).getText());
+
+    browser.sleep(3000);
+    expect(textFirstElement).toBe('J\'ai faim');
   });
 
   afterEach(async () => {

@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./badge.component.css']
 })
 export class BadgeComponent implements OnInit {
-  notificationCount = 5;
+
+  currentDate: number = 0;
 
   constructor() { }
 

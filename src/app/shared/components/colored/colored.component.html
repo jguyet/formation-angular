@@ -1,0 +1,4 @@
+<p *ngIf="currentColor$ | async as color" [style.color]="color">colored works!</p>
+<div #color style="display: none;">
+    <ng-content></ng-content>
+</div>

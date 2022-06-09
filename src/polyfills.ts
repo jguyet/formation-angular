@@ -61,3 +61,14 @@ import 'zone.js';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+ import type { ThemePalette } from '@angular/material/core/common-behaviors/color';
+
+ export type CustomThemePalette = ThemePalette | 'secondary' | 'success' | 'alert';
+
+declare module '@angular/material/core/common-behaviors/color' {
+    interface CanColor {
+        // @ts-ignore
+        color: CustomThemePalette;
+    }
+}

@@ -1,0 +1,27 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="cardGroup">
+    <div>
+        <label>title</label>
+        <input formControlName="title">
+        <label *ngIf="titleCtrl.invalid">{{ titleCtrl | inputError }}</label>
+    </div>
+
+    <div>
+        <label>description</label>
+        <input formControlName="description">
+    </div>
+
+    <div>
+        <label>price</label>
+        <input type="number" formControlName="price">
+    </div>
+
+    <div>
+        <label>type</label>
+        <select formControlName="type">
+            <option value="red" >Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+        </select>
+    </div>
+    <button type="submit" [disabled]="cardGroup.invalid" >Créer</button>
+</form>

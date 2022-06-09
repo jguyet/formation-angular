@@ -1,8 +1,9 @@
 export class Card {
+    public id?: string;
     constructor(
-        public title: String,
-        public description: String,
-        public price: Number,
-        public type: String
+        public title: string,
+        public description: string,
+        public price: number,
+        public type: string
     ) { }
 }

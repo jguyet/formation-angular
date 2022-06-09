@@ -37,6 +37,20 @@ import { FormationComponent } from './components/formation/formation.component';
 import { FormationBasicComponent } from './components/formation-basic/formation-basic.component';
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { Error404Component } from './components/error404/error404.component';
+import { AddCardComponent } from './components/add-card/add-card.component';
+import { BiereComponent } from './components/biere/biere.component';
+import { RandomHoneyPotComponent } from './components/random-honey-pot/random-honey-pot.component';
+import { RandomCircleComponent } from './components/random-circle/random-circle.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { counterReducer } from './redux/counter/counter.reducer';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { cardsReducer } from './redux/cards/cards.reducer';
+import { CardsEffects } from './redux/cards/cards.effects';
+import { HeaderComponent } from './header/header.component';
+import { IpComponent } from './components/ip/ip.component';
 
 @NgModule({
   declarations: [ // ICI dans declarations je decrit les composants a declarer
@@ -70,7 +84,15 @@ import { StatsComponent } from './components/stats/stats.component';
     FormationComponent,
     FormationBasicComponent,
     FormulaireComponent,
-    StatsComponent
+    StatsComponent,
+    Error404Component,
+    AddCardComponent,
+    BiereComponent,
+    RandomHoneyPotComponent,
+    RandomCircleComponent,
+    CounterComponent,
+    HeaderComponent,
+    IpComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent], // composant initialisé dés le chargement du module
   imports: [ // toutes les libs (modules à importer).
@@ -80,7 +102,15 @@ import { StatsComponent } from './components/stats/stats.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      counter: counterReducer,
+      cards: cardsReducer
+    }),
+    EffectsModule.forRoot([
+      CardsEffects
+    ]),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [ // Ici je declare mes services.
     

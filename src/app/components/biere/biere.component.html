@@ -1,0 +1,10 @@
+<div class="biere">
+    <div class="contenu" [style.height]="((biere$ | async) * 100 / 50) + '%'">
+    </div>
+</div>
+
+<div *ngIf="biereVide$ | async">
+    Le verre est vide !
+</div>
+
+<button (click)="update();">Boire</button>

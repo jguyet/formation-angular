@@ -9,7 +9,13 @@ import { AuthService } from './shared/security/auth.service';
 })
 export class AppComponent { 
 
-    constructor(public router: Router) {
+    public state = 'close';
+
+    constructor(public router: Router, public authService: AuthService) {
+    }
+
+    setState(state: string) {
+      this.state = state;
     }
 
 }

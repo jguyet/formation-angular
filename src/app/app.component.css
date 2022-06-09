@@ -3,13 +3,21 @@ a {
 }
 
 div {
-  margin: 1em;
   justify-content: space-between
 }
 
-ul {
-  display: flex;
-  list-style-type: none;
-  text-align: left;
-  flex-flow: wrap;
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 50px;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  padding: 0 5px;
+}
+
+mat-sidenav-container {
+  height: 100vh;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
 }

@@ -1,0 +1,8 @@
+<ng-container *ngIf="(randomCard$ | async) as card">
+    <div mat-card-avatar class="example-header-image"
+            [ngStyle]="{'background-image': 'url(../../../assets/img/miel_' + card.type + '.png)'}"></div>
+    <mat-card-title>{{ card.title }}</mat-card-title>
+    <mat-card-subtitle>Prix : {{ card.price | currency:'EUR' }}</mat-card-subtitle>
+</ng-container>
+
+<button mat-flat-button color="accent" (click)="random()">Randomize</button>

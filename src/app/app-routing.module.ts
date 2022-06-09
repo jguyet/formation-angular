@@ -24,10 +24,15 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { DialogueComponent } from './components/dialogue/dialogue.component';
 import { StorageComponent } from './components/storage/storage.component';
 import { LoginComponent } from './components/login/login.component';
-import { FormationComponent } from './components/formation/formation.component';
 import { FormationBasicComponent } from './components/formation-basic/formation-basic.component';
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { AddCardComponent } from './components/add-card/add-card.component';
+import { BiereComponent } from './components/biere/biere.component';
+import { RandomHoneyPotComponent } from './components/random-honey-pot/random-honey-pot.component';
+import { RandomCircleComponent } from './components/random-circle/random-circle.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { IpComponent } from './components/ip/ip.component';
 
 
 const routes: Routes = [
@@ -66,7 +71,14 @@ const routes: Routes = [
   { path: 'cards', component: CardsComponent },
   { path: 'formulaire', component: FormulaireComponent },
   { path: 'stats', component: StatsComponent },
-  { path: '', component: FormationBasicComponent }
+  { path: 'biere', component: BiereComponent },
+  { path: 'counter', component: CounterComponent },
+  { path: 'random-honey', component: RandomHoneyPotComponent },
+  { path: 'random-circle', component: RandomCircleComponent },
+  { path: 'card/create', component: AddCardComponent },
+  { path: 'ip', component: IpComponent },
+  { path: '', component: FormationBasicComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
