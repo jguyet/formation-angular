@@ -17,7 +17,7 @@ export class CardApiService {
   }
 
   public getCards(): Observable<Card[]> {
-      return this.httpClient.get<Card[]>(`${this.endpoint}/search_query`).pipe(
+      return this.httpClient.get<Card[]>(`${environment.formationApi}/search_query`).pipe(
           catchError((error) => {
               console.error(error);
               return [];// return empty card Array

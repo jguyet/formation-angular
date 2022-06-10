@@ -5,9 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { UploadService } from './services/upload.service';
 import { AuthService } from './security/auth.service';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { CardComponent } from './components/card/card.component';
+import { MaterialModule } from '../modules/material/material.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CardComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -15,9 +19,12 @@ import { OAuthModule } from 'angular-oauth2-oidc';
         resourceServer: {
             sendAccessToken: true
         }
-    })
+    }),
+    MaterialModule
   ],
-  exports: [],
+  exports: [
+    CardComponent
+  ],
   providers: [CardApiService, UploadService, AuthService]
 })
 export class SharedModule { }

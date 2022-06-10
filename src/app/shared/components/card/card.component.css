@@ -1,0 +1,38 @@
+mat-card {
+    margin: 2em;
+}
+
+.example-card {
+    width: 250px;
+    height: 170px;
+    margin-bottom: 50px;
+    float: left;
+}
+
+.example-header-image {
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+    background-size: cover;
+}
+
+
+mat-card-actions {
+    text-align: end;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+mat-card-title {
+    overflow: hidden;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+mat-card-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}

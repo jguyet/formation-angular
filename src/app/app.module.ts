@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+
 import { MaterialModule } from './modules/material/material.module';
 
 import { TypographyComponent } from './components/typography/typography.component';
@@ -38,6 +42,8 @@ import { FormationBasicComponent } from './components/formation-basic/formation-
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { counterReducer } from './store/counter/counter.reducer';
 
 @NgModule({
   declarations: [ // ICI dans declarations je decrit les composants a declarer
@@ -72,7 +78,8 @@ import { RxjsComponent } from './components/rxjs/rxjs.component';
     FormationBasicComponent,
     FormulaireComponent,
     StatsComponent,
-    RxjsComponent
+    RxjsComponent,
+    CounterComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent], // composant initialisé dés le chargement du module
   imports: [ // toutes les libs (modules à importer).
@@ -82,7 +89,11 @@ import { RxjsComponent } from './components/rxjs/rxjs.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      'count': counterReducer
+    }),
+    StoreDevtoolsModule.instrument({})
   ],
   providers: [ // Ici je declare mes services.
     
