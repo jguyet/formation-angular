@@ -1,4 +1,16 @@
 <mat-card>Basic Cards</mat-card>
 <p style="font-size: 0.7em;">(*Bien configurer l'url du serveur dans la configuration des environements.)</p>
 
-<app-card *ngFor="let card of cards$ | async" [card]="card"></app-card>
+<ng-container *ngIf="(cardsOrError$ | async) as cardsOrError">
+
+    <!-- Tout va bien -->
+    <ng-container *ngIf="cardsOrError.cards">
+        <app-card *ngFor="let card of cardsOrError.cards" [card]="card"></app-card>
+    </ng-container>
+
+    <!-- Gestion d'erreur -->
+    <ng-container *ngIf="cardsOrError.error">
+        <p>{{ cardsOrError.error }}</p>
+    </ng-container>
+
+</ng-container>

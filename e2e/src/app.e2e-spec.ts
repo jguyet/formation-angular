@@ -9,20 +9,12 @@ describe('workspace-project App', () => {
     page.navigateTo();
   });
 
-  it('should display welcome message', async () => {
-    expect(await browser.getTitle()).toEqual('Formation Angular Avances');
-  });
+  it('should card exists', async () => {
+    let firstCardTitle = await $$('.mat-card-title').get(0).getText();
 
-  it('first button should be Formation', () => {
-    expect(page.getFirstButtonText()).toEqual('Formation');
-  });
-
-  it('first Card should be sfsfsff', (done) => {
-    page.getCardButton().click().then(() => {
-      // browser.sleep(5000);
-      expect($$('mat-card mat-card-title').first().getText()).toEqual('sfsfsff');
-      done();
-    });
+    expect(firstCardTitle).toEqual('J\'ai faim');
+    
+    browser.sleep(10000);
   });
 
   afterEach(async () => {

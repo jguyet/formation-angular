@@ -17,12 +17,7 @@ export class CardApiService {
   }
 
   public getCards(): Observable<Card[]> {
-      return this.httpClient.get<Card[]>(`${environment.formationApi}/search_query`).pipe(
-          catchError((error) => {
-              console.error(error);
-              return [];// return empty card Array
-          })
-      ); 
+      return this.httpClient.get<Card[]>(`${environment.formationApi}/search_query`); 
   }
 
   public createCard(title: String, description: String, price: Number, type: String): Observable<Card> {

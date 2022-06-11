@@ -43,7 +43,10 @@ import { FormulaireComponent } from './components/formulaire/formulaire.componen
 import { StatsComponent } from './components/stats/stats.component';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { counterReducer } from './store/counter/counter.reducer';
+import { counterReducer } from './redux/counter/counter.reducer';
+import { cardsReducer } from './redux/cards/cards.reducer';
+import { CardsEffects } from './redux/cards/cards.effects';
+import { TestDivComponent } from './components/test-div/test-div.component';
 
 @NgModule({
   declarations: [ // ICI dans declarations je decrit les composants a declarer
@@ -79,7 +82,8 @@ import { counterReducer } from './store/counter/counter.reducer';
     FormulaireComponent,
     StatsComponent,
     RxjsComponent,
-    CounterComponent
+    CounterComponent,
+    TestDivComponent
   ],
   entryComponents: [CustomSnackbarComponent, ExampleDialogComponent], // composant initialisé dés le chargement du module
   imports: [ // toutes les libs (modules à importer).
@@ -91,9 +95,13 @@ import { counterReducer } from './store/counter/counter.reducer';
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot({
-      'count': counterReducer
+      'count': counterReducer,
+      'cards': cardsReducer
     }),
-    StoreDevtoolsModule.instrument({})
+    StoreDevtoolsModule.instrument({}),
+    EffectsModule.forRoot([
+      CardsEffects
+    ])
   ],
   providers: [ // Ici je declare mes services.
     
