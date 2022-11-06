@@ -39,52 +39,50 @@ import { FormulaireComponent } from './components/formulaire/formulaire.componen
 import { StatsComponent } from './components/stats/stats.component';
 
 @NgModule({
-  declarations: [ // ICI dans declarations je decrit les composants a declarer
-    AppComponent,
-    TypographyComponent,
-    ButtonComponent,
-    IconComponent,
-    BadgeComponent,
-    SpinnerComponent,
-    ToolbarComponent,
-    SidenavComponent,
-    MenuComponent,
-    ListComponent,
-    GridComponent,
-    ExpansionPanelComponent,
-    CardsComponent,
-    TabsComponent,
-    StepperComponent,
-    InputComponent,
-    SelectComponent,
-    AutocompleteComponent,
-    CheckboxComponent,
-    DatepickerComponent,
-    TooltipComponent,
-    SnackbarComponent,
-    CustomSnackbarComponent,
-    DialogueComponent,
-    ExampleDialogComponent,
-    StorageComponent,
-    LoginComponent,
-    FormationComponent,
-    FormationBasicComponent,
-    FormulaireComponent,
-    StatsComponent
-  ],
-  entryComponents: [CustomSnackbarComponent, ExampleDialogComponent], // composant initialisé dés le chargement du module
-  imports: [ // toutes les libs (modules à importer).
-    BrowserModule,
-    AppRoutingModule,
-    SharedModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [ // Ici je declare mes services.
-    
-  ],
-  bootstrap: [AppComponent] // point d'entrer de l'application
+    declarations: [
+        AppComponent,
+        TypographyComponent,
+        ButtonComponent,
+        IconComponent,
+        BadgeComponent,
+        SpinnerComponent,
+        ToolbarComponent,
+        SidenavComponent,
+        MenuComponent,
+        ListComponent,
+        GridComponent,
+        ExpansionPanelComponent,
+        CardsComponent,
+        TabsComponent,
+        StepperComponent,
+        InputComponent,
+        SelectComponent,
+        AutocompleteComponent,
+        CheckboxComponent,
+        DatepickerComponent,
+        TooltipComponent,
+        SnackbarComponent,
+        CustomSnackbarComponent,
+        DialogueComponent,
+        ExampleDialogComponent,
+        StorageComponent,
+        LoginComponent,
+        FormationComponent,
+        FormationBasicComponent,
+        FormulaireComponent,
+        StatsComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        SharedModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    providers: [ // Ici je declare mes services.
+    ],
+    bootstrap: [AppComponent] // point d'entrer de l'application
 })
 export class AppModule { }
