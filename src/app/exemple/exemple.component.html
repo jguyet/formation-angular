@@ -1,0 +1,13 @@
+<h1>{{ title }}</h1>
+
+<button title="{{ raffleDetails }}"  (click)="raffle($event);">Reveal</button>
+<button [title]="raffleDetails"  (click)="raffle($event);">Reveal</button>
+
+<input [(ngModel)]="raffleDetails" type="text"/>
+
+<ng-container *ngIf="result > 0">
+    {{ result }}
+</ng-container>
+<ng-container *ngIf="result == 0">
+    Nothing
+</ng-container>

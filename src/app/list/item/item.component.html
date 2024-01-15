@@ -1,0 +1,10 @@
+<table>
+    <tbody>
+        <tr>
+            <td><ng-content></ng-content></td>
+            <td>{{ id }}</td>
+            <td>{{ name }}</td>
+            <td (click)="remove()" class="remove-item">x</td>
+        </tr>
+    </tbody>
+</table>

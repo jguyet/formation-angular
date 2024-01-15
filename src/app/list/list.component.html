@@ -1,0 +1,14 @@
+
+@for (artifact of artifacts; track artifact) {
+    <app-item
+        [id]="artifact.id"
+        [name]="artifact.name"
+        (remove)="whenRemoveArtifact($event)">
+    Artifact</app-item>
+}
+
+<!-- <app-item
+    *ngFor="let artifact of artifacts"
+    [id]="artifact.id"
+    [name]="artifact.name"
+    (remove)="whenRemoveArtifact($event)"></app-item> -->
