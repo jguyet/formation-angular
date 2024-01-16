@@ -24,8 +24,54 @@ exports.searchByPage = function(req, res, page = 1, size = 20) {
     });
 };
 
+exports.getRandomCardId = function(req, res, page = 1, size = 20) {
+    req.models.card
+    .find({}, Number(size)/** limit */)
+    .offset(size * (page - 1))
+    .run(function(err, result) {
+        if (err) { console.log(err); }
+        var cards = JSON.parse(JSON.stringify(result)).map(x => {
+            var program = x.extra;
+            delete x.extra;
+            x.program = program;
+            return x;
+        });
+
+        if (cards.length > 0) {
+            res.status(200).send(cards[Math.floor(Math.random()*cards.length)].id);
+        } else {
+            res.status(200).send("0");
+        }
+    });
+};
+
 exports.get = function(req, res) {
     res.status(200).send(JSON.parse(JSON.stringify(req._card)));
+};
+
+exports.delete = function(req, res) {
+    /**
+    * Delete card
+    * @param {Object} card
+    * @param {Function} callback
+    */
+   function deletecard(card, callback) {
+        req.models.card.find({ id: card.id }).remove(function (err, card) {
+            match(card)
+            ([
+                (/* success */) => {
+                    callback(card);
+                },
+                [undefined, (/* failed */) => res.status(404).send(err)]
+            ]);
+        });
+    }
+
+    deletecard({
+        id: req._card.id
+    }, () => {
+        res.status(200).send(JSON.parse(JSON.stringify(req._card)));
+    });
 };
 
 exports.create = function(req, res, card) {
@@ -53,7 +99,7 @@ exports.create = function(req, res, card) {
    createcard({
        id:             new MID().toUUID(),
        title:          card.title,
-       description:    '',
+       description:    card.description != undefined ? card.description : '',
        price:          card.price,
        type:           card.type
    }, (card) => {

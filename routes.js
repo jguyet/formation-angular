@@ -143,6 +143,31 @@ _("GET /user ./exposition/controllers/UserResourceController.get()");
 /**
  * @swagger
  * /user/{id}:
+ *   get:
+ *     summary: get user information
+ *     tags:
+ *       - name: User
+ *     consumes:
+ *       - application/json
+ *     security:
+ *      - authentication: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The user logging
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: empty
+ *       404:
+ *         description: empty
+ */
+ _("GET /user/:id ./exposition/controllers/UserResourceController.getUserById()");
+
+/**
+ * @swagger
+ * /user/{id}:
  *   delete:
  *     summary: remove user from id parameter
  *     tags:
@@ -212,6 +237,8 @@ _("GET /search_query ./exposition/controllers/CardResourceController.search()");
  *           properties:
  *             title:
  *               type: string
+ *             description:
+ *               type: string
  *             price:
  *               type: integer
  *             type:
@@ -247,6 +274,42 @@ _("GET /card/:id ./exposition/controllers/CardResourceController.get()");
 
 /**
  * @swagger
+ * /random-card-id:
+ *   get:
+ *     summary: get random card id
+ *     tags:
+ *       - name: Card
+ *     responses:
+ *       200:
+ *         description: integer id
+ *       404:
+ *         description: empty
+ */
+ _("GET /random-card-id ./exposition/controllers/CardResourceController.getRandomCardId()");
+
+/**
+ * @swagger
+ * /card/{id}:
+ *   delete:
+ *     summary: delete card by id
+ *     tags:
+ *       - name: Card
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: card id
+ *         schema:
+ *          type: UUID
+ *     responses:
+ *       200:
+ *         description: empty
+ *       404:
+ *         description: empty
+ */
+ _("DELETE /card/:id ./exposition/controllers/CardResourceController.delete()");
+
+/**
+ * //@swagger
  * /storage/{id}:
  *   get:
  *     summary: retrieve file from data storage
@@ -267,7 +330,7 @@ _("GET /card/:id ./exposition/controllers/CardResourceController.get()");
 _("GET /storage/:id ./exposition/controllers/StorageResourceController.get()");
 
 /**
- * @swagger
+ * //@swagger
  * /storage:
  *   post:
  *     summary: Upload file to the data storage
@@ -283,11 +346,318 @@ _("GET /storage ./exposition/controllers/StorageResourceController.preUpload()")
 _("POST /storage ./exposition/controllers/StorageResourceController.upload()");
 
 
+/**
+ * @swagger
+ * /formulaire:
+ *   get:
+ *     summary: retrieve form data
+ *     tags:
+ *       - name: Formulaire
+ *     responses:
+ *       200:
+ *         description: []
+ *       404:
+ *         description: (code 1 - You already have a chain)
+ */
+ _("GET /formulaire ./exposition/controllers/FormulaireResourceController.get()");
+
+/**
+ * @swagger
+ * /formulaire:
+ *   post:
+ *     summary: Post result
+ *     tags:
+ *       - name: Formulaire
+ *     consumes:
+ *       - application/json
+ *     parameters:
+ *       - in: body
+ *         name: result
+ *         description: The Result 
+ *     responses:
+ *       200:
+ *         description: empty
+ *       404:
+ *         description: (code 1 - You already have a chain)
+ */
+ _("POST /formulaire ./exposition/controllers/FormulaireResourceController.post()");
+
+/**
+ * @swagger
+ * /formulaire/stats:
+ *   get:
+ *     summary: retrieve formulaire stats
+ *     tags:
+ *       - name: Formulaire
+ *     responses:
+ *       200:
+ *         description: []
+ *       404:
+ *         description: (code 1 - You already have a chain)
+ */
+ _("GET /formulaire/stats ./exposition/controllers/FormulaireResourceController.getStats()");
+
+/**
+ * @swagger
+ * /formulaire/stats:
+ *   delete:
+ *     summary: remove formulaire stats
+ *     tags:
+ *       - name: Formulaire
+ *     responses:
+ *       200:
+ *         description: empty
+ */
+ _("DELETE /formulaire/stats ./exposition/controllers/FormulaireResourceController.clean()");
+
+/**
+ * @swagger
+ * /get-ip:
+ *   get:
+ *     summary: retrieve ip information
+ *     tags:
+ *       - name: Ip Protocol Information
+ *     responses:
+ *       200:
+ *         description: { "ip": "127.0.0.1" }
+ *       404:
+ *         description: Error
+ */
+ _("GET /get-ip ./exposition/controllers/IpResourceController.get()");
+
+/**
+ * @swagger
+ * /channels:
+ *   get:
+ *     summary: get all channels
+ *     tags:
+ *       - name: Channel
+ *     responses:
+ *       200:
+ *         description: empty
+ *       404:
+ *         description: empty
+ */
+_("GET /channels ./exposition/controllers/ChannelResourceController.getAll()");
+
+/**
+ * @swagger
+ * /channel:
+ *   post:
+ *     summary: Creation of one Channel
+ *     tags:
+ *       - name: Channel
+ *     consumes:
+ *       - application/json
+ *     parameters:
+ *       - in: body
+ *         name: channel
+ *         description: The channel to create.
+ *         schema:
+ *           type: object
+ *           required:
+ *             - title
+ *             - type
+ *           properties:
+ *             title:
+ *               type: string
+ *             picture:
+ *               type: string
+ *               example: "https://ninja.png"
+ *     responses:
+ *       200:
+ *         description: empty
+ *       404:
+ *         description: (code 1 - You already have a chain)
+ */
+ _("POST /channel ./exposition/controllers/ChannelResourceController.create()");
+
+ /**
+ * @swagger
+ * /channel/{title}/message/add:
+ *   post:
+ *     summary: Send new Message to Channel
+ *     tags:
+ *       - name: Channel
+ *     consumes:
+ *       - application/json
+ *     security:
+ *      - authentication: []
+ *     parameters:
+ *       - in: body
+ *         name: message
+ *         description: The message you want add in
+ *         schema:
+ *           type: object
+ *           required:
+ *             - title
+ *             - message
+ *           properties:
+ *             title:
+ *               type: string
+ *             message:
+ *               type: string
+ *     responses:
+ *       200:
+ *         description: empty
+ *       404:
+ *         description: (code 1 - You already have a chain)
+ */
+  _("POST /channel/:title/message/add ./exposition/controllers/ChannelResourceController.sendMessage()");
+
+/**
+ * @swagger
+ * /channel/{title}/message/update:
+ *   post:
+ *     summary: Update specific message in one Channel
+ *     tags:
+ *       - name: Channel
+ *     consumes:
+ *       - application/json
+ *     security:
+ *      - authentication: []
+ *     parameters:
+ *       - in: body
+ *         name: message
+ *         description: The message you want add in
+ *         schema:
+ *           type: object
+ *           required:
+ *             - messageId
+ *             - title
+ *             - message
+ *           properties:
+ *             messageId:
+ *               type: string
+ *             title:
+ *               type: string
+ *             message:
+ *               type: string
+ *     responses:
+ *       200:
+ *         description: empty
+ *       404:
+ *         description: (code 1 - You already have a chain)
+ */
+ _("POST /channel/:title/message/update ./exposition/controllers/ChannelResourceController.updateMessage()");
+
+/**
+ * @swagger
+ * /channel/{title}/message/{id}/delete:
+ *   delete:
+ *     summary: Delete specific message in one Channel
+ *     tags:
+ *       - name: Channel
+ *     consumes:
+ *       - application/json
+ *     security:
+ *      - authentication: []
+ *     parameters:
+ *       - in: path
+ *         name: title
+ *         description: channel title
+ *         schema:
+ *          type: string
+ *       - in: path
+ *         name: id
+ *         description: message id
+ *         schema:
+ *          type: string
+ *     responses:
+ *       200:
+ *         description: empty
+ *       404:
+ *         description: (code 1 - You already have a chain)
+ */
+ _("DELETE /channel/:title/message/:id/delete ./exposition/controllers/ChannelResourceController.deleteMessage()");
+
+ /**
+  * @swagger
+  * /channel/{title}:
+  *   get:
+  *     summary: get channel by title
+  *     tags:
+  *       - name: Channel
+  *     parameters:
+  *       - in: path
+  *         name: title
+  *         description: channel title
+  *         schema:
+  *          type: string
+  *     responses:
+  *       200:
+  *         description: empty
+  *       404:
+  *         description: empty
+  */
+ _("GET /channel/:title ./exposition/controllers/ChannelResourceController.get()");
+ 
+ /**
+  * @swagger
+  * /channel/{title}:
+  *   delete:
+  *     summary: delete channel by title
+  *     tags:
+  *       - name: Channel
+  *     parameters:
+  *       - in: path
+  *         name: title
+  *         description: channel title
+  *         schema:
+  *          type: string
+  *     responses:
+  *       200:
+  *         description: empty
+  *       404:
+  *         description: empty
+  */
+  _("DELETE /channel/:title ./exposition/controllers/ChannelResourceController.delete()");
+
+/**
+ * @swagger
+ * /channel/{title}/messages:
+ *   delete:
+ *     summary: remove all messages from one channel
+ *     tags:
+ *       - name: Channel
+ *     security:
+ *      - authentication: []
+ *     parameters:
+ *       - in: path
+ *         name: title
+ *         description: channel title
+ *         schema:
+ *          type: string
+ *     responses:
+ *       200:
+ *         description: empty
+ *       404:
+ *         description: empty
+ */
+_("DELETE /channel/:title/messages ./exposition/controllers/ChannelResourceController.clean()");
+
+ /**
+ * @swagger
+ * /ws:
+ *   get:
+ *     summary: websocket with channels messages
+ *     tags:
+ *       - name: WebSocket Channel messages
+ *     responses:
+ *       200:
+ *         description: Connected
+ *       404:
+ *         description: Error
+ */
+// nothing
+
+
 _("GET /.well-known/openid-configuration ./exposition/controllers/OpenIdResourceController.get()");
 _("GET /o/oauth2/v2/auth ./exposition/controllers/OpenIdResourceController.auth()");
-_("GET /v1/userinfo ./exposition/controllers/OpenIdResourceController.userinfo()");
 _("GET /o/oauth2/v2/certs ./exposition/controllers/OpenIdResourceController.certs()");
 _("POST /token ./exposition/controllers/OpenIdResourceController.token()");
+_("GET /v1/userinfo ./exposition/controllers/OpenIdResourceController.userinfo()");
+
 
 tableRoute[0] = tableRoute[0].sort((a, b) => a.Routes > b.Routes ? 1 : -1);
 console.table(tableRoute[0], tableRoute[1]);

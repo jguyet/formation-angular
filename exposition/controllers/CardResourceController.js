@@ -53,6 +53,9 @@ const CardResourceController = {
             ValidationStep
         ],
         (req, res) => CardController.get(req, res)),
+    getRandomCardId: (app, type, route) => AddRoute(app, type, route,
+        [],
+        (req, res) => CardController.getRandomCardId(req, res)),
     create: (app, type, route) => AddRoute(app, type, route,
         //////////////////////////////////////////////////////////
         // Validation ->
@@ -70,12 +73,46 @@ const CardResourceController = {
                 ['exists', Code.EMPTY_FIELD],
                 ['isString', Code.FIELD_TYPE]
             ]),
+            Validation('body:description', [
+                ['exists', Code.EMPTY_FIELD],
+                ['isString', Code.FIELD_TYPE]
+            ]),
             ValidationStep
         ],
         //////////////////////////////////////////////////////////
         // Entry point ->
         //////////////////////////////////////////////////////////
-        (req, res) => CardController.create(req, res, req.body))
+        (req, res) => CardController.create(req, res, req.body)),
+    delete: (app, type, route) => AddRoute(app, type, route,
+        [
+            //////////////////////////////////////////////////////////
+            // Validation ->
+            //////////////////////////////////////////////////////////
+            Validation('param:id', [
+                ['exists', Code.EMPTY_FIELD],
+                ['isString', Code.FIELD_TYPE]
+            ]),
+            ValidationStep,
+            /**
+             * Check on database if exists
+             */
+            function(req, res, next) {
+                req.models.card.get(req.params.id, function(err, card) {
+                    switch (card) {
+                        case undefined: { // Doesn't exists
+                            req._validationErrors.push({ param: "card", msg: { code: 1500 } });
+                            next();
+                        }
+                        case card: {
+                            req._card = card;
+                            next();
+                        }
+                    }
+                });
+            },
+            ValidationStep
+        ],
+        (req, res) => CardController.delete(req, res)),
 };
 
 module.exports = CardResourceController;

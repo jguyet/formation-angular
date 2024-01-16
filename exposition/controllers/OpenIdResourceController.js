@@ -4,6 +4,9 @@ const { Code } = require('../../shared/services/security/Code');
 const multer  = require('multer');
 const MID = require('monotonic-id');
 const jwt = require('jsonwebtoken');
+const { GetToken } = require("../../shared/services/security/Authentication");
+const { AuthenticatedFilter } = require('../../shared/services/security/Authentication');
+const UserController = require("../../application/controllers/UserController");
 
 const STORAGE_PATH = '/mnt/storage/';
 
@@ -14,14 +17,10 @@ const OpenIdResourceController = {
      * EXPOSED ROUTE
      */
     get: (app, type, route) => AddRoute(app, type, route,
-        [
-            // Validation('param:id', [
-            //     ['exists', Code.EMPTY_FIELD]
-            // ]),
-            // ValidationStep
-        ],
+        [],
         (req, res) => {
-            var host = "http://formationangular.eu-gb.mybluemix.net";
+            console.log('openid-configuration');
+            var host = "http://localhost:8080";//"http://formationangular.eu-gb.mybluemix.net";
             res.status(200).send({
                 "issuer": host,
                 "authorization_endpoint": `${host}/o/oauth2/v2/auth`,
@@ -75,30 +74,11 @@ const OpenIdResourceController = {
                });
         }),
     /**
-     * /v1/userinfo
-     * EXPOSED ROUTE
-     */
-    userinfo: (app, type, route) => AddRoute(app, type, route,
-        [
-            // Validation('param:id', [
-            //     ['exists', Code.EMPTY_FIELD]
-            // ]),
-            // ValidationStep
-        ],
-        (req, res) => {
-            console.log('userinfo');
-        }),
-    /**
      * /o/oauth2/v2/certs
      * EXPOSED ROUTE
      */
     certs: (app, type, route) => AddRoute(app, type, route,
-        [
-            // Validation('param:id', [
-            //     ['exists', Code.EMPTY_FIELD]
-            // ]),
-            // ValidationStep
-        ],
+        [],
         (req, res) => {
             console.log('certs');
             res.status(200).send({
@@ -128,48 +108,93 @@ const OpenIdResourceController = {
      */
     auth: (app, type, route) => AddRoute(app, type, route,
         [
-            // Validation('param:id', [
-            //     ['exists', Code.EMPTY_FIELD]
-            // ]),
-            // ValidationStep
+            /**
+             * Check on database if exists
+             */
+            function(req, res, next) {
+                req.models.account.find({ id: req.query['client_id'] }, function (err, accounts) {
+                    if (accounts == undefined || accounts.length == 0) {
+                        var redirectTo = req.session.redirectTo || '/';
+                        delete req.session.redirectTo;
+                        res.redirect(redirectTo);
+                    } else {
+                        req._account = accounts[0];
+                        next();
+                    }
+                });
+            }
         ],
         (req, res) => {
             console.log('Auth', req.query['redirect_uri']);
-            var token = jwt.sign({
+
+            var token = GetToken({
                 aud: req.query['client_id'],
                 nonce: req.query['nonce'],
                 sub: {},
                 iss: 'http://localhost:8080',
-                at_hash: 'HS256'
-                //issuer: req.query['issuer']
-            }, 'secretToken', {
-                expiresIn: 86400 // expires in 24 hours
-            })
+                at_hash: 'HS256',
+                email: req._account.email
+            }, 86400 /* expire in 24h */);
+
             res.redirect(302 , `${req.query['redirect_uri']}#response_type=id_token&access_token=${token}&token_type=Bearer&expires_in=86400&scope=${req.query['scope']}&id_token=${token}&state=${req.query['state']}`);
-            /**
-             * #
-access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
-&token_type=Bearer
-&expires_in=3599
-&scope=https%3a%2f%2fgraph.microsoft.com%2fuser.read 
-&id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
-&state=12345
-             */
             res.end();
+        }),
+    /**
+     * /v1/userinfo
+     * EXPOSED ROUTE
+     */
+    userinfo: (app, type, route) => AddRoute(app, type, route,
+        [
+            AuthenticatedFilter,
+            UserController.LoadAccount
+        ],
+        (req, res) => {
+            console.log('userinfo');
+            res.send({
+                sub: {
+                    id: req._account.id,
+                    email: req._account.email
+                }
+            });
         }),
     /**
      * /token
      * EXPOSED ROUTE
      */
-    token: (app, type, route) => AddRoute(app, type, route,
+     token: (app, type, route) => AddRoute(app, type, route,
         [
-
+            /**
+             * Check on database if exists
+             */
+             function(req, res, next) {
+                req.models.account.find({ id: req.body['clientId'], password: req.body['clientSecret']  }, function (err, accounts) {
+                    if (accounts == undefined || accounts.length == 0) {
+                        if (exists) req._validationErrors.push({ msg: { code: 401 } });//account not exists
+                        next();
+                    } else {
+                        req._account = accounts[0];
+                        next();
+                    }
+                });
+            }
         ],
         (req, res) => {
-            console.log('token');
+            console.log('token', req.query, req.body);
+
+            var token = GetToken({
+                aud: req.body['client_id'],
+                nonce: 1,
+                sub: {
+                    id: req._account.id,
+                    email: req._account.email
+                },
+                iss: 'http://localhost:8080',
+                at_hash: 'HS256'
+            }, 86400 /* expire in 24h */);
+
             res.status(200).send({
-                "access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-                "expires_in": 3000,
+                "access_token": token,
+                "expires_in": 86400,
                 "token_type":"Bearer"
             });
         })

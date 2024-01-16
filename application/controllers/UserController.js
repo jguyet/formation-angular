@@ -10,7 +10,7 @@ var MID = require('monotonic-id');
  * Get account with token loaded before from database.
  */
 exports.LoadAccount = function(req, res, next) {
-    var accountId = req._token.id;
+    var accountId = req._token.sub != undefined ? req._token.sub.id : req._token.id;
 
     req.models.account.get(accountId, function(err, account) {
         match(account)
@@ -36,7 +36,7 @@ exports.login = function(req, res, email, password) {
         match(accounts)
         ([
             [() => accounts && accounts.length == 1, (/* success */) => {
-                res.status(200).send({ auth: true, token: GetToken({ id: accounts[0].id, email: accounts[0].email }) });
+                res.status(200).send({ auth: true, clientId: accounts[0].id, clientSecret: CryptoJS.SHA256(password).toString()});//, token: GetToken({ id: accounts[0].id, email: accounts[0].email }) });
             }],
             (/* failed */) => {
                 res.status(404).send({ auth: false });
@@ -53,13 +53,14 @@ exports.register = function(req, res, email, password) {
     req.models.account.create({
         id: new MID().toUUID(),
         email: email,
-        password: CryptoJS.SHA256(password).toString()
+        password: CryptoJS.SHA256(password).toString(),
+        picture: 'https://app.checkdot.io/assets/no-icon2.png'
     }, function (err, account) {
         match(account)
         ([
             (/* success */) => {
                 account.save();
-                res.status(200).send({ auth: true, token: GetToken({ id: account.id, email: account.email }) });
+                res.status(200).send({ account: JSON.parse(JSON.stringify(account)), auth: true, clientId: account.id, clientSecret: CryptoJS.SHA256(password).toString() });//, token: GetToken({ id: account.id, email: account.email }) });
             },
             [undefined, (/* failed */) => res.status(404).send(err)]
         ]);
@@ -70,9 +71,17 @@ exports.register = function(req, res, email, password) {
  * @Controller
  * Attatch picture id (picture on storage) to account
  */
-exports.picture = function(req, res, body) {
-    req._account.picture = body.picture;
+ exports.update = function(req, res, email, password, picture) {
+    if (email != undefined) {
+        req._account.email = email;
+    }
+    if (password != undefined) {
+        req._account.password = password;
+    }
+    if (picture != undefined) {
+        req._account.picture = picture;
+    }
     req._account.save(function(err) {
-        res.status(200).send(id);
+        res.status(200).send(JSON.parse(JSON.stringify(req._account)));
     });
 }
