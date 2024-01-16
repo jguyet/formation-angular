@@ -1,0 +1,8 @@
+.header-base {
+    display: flex;
+    gap: 10px;
+}
+
+.link-active {
+    filter: brightness(0.4)
+}

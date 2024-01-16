@@ -1,8 +1,7 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { ExempleComponent } from './exemple/exemple.component';
-import { ListComponent } from './list/list.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +9,10 @@ import { ListComponent } from './list/list.component';
   imports: [
     CommonModule,
     RouterOutlet,
-    ExempleComponent,
-    ListComponent
+    HeaderComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'formation2024';
 }

@@ -3,8 +3,8 @@
         <tr>
             <td><ng-content></ng-content></td>
             <td>{{ id }}</td>
-            <td>{{ name }}</td>
-            <td (click)="remove()" class="remove-item">x</td>
+            <td appHoverItem>{{ name }}</td>
+            <td (click)="removeFn()" class="remove-item">x</td>
         </tr>
     </tbody>
 </table>

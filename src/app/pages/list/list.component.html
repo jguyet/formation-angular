@@ -1,11 +1,16 @@
 
-@for (artifact of artifacts; track artifact) {
+@for (artifact of artifacts; track track(artifact)) {
     <app-item
         [id]="artifact.id"
         [name]="artifact.name"
         (remove)="whenRemoveArtifact($event)">
     Artifact</app-item>
+} @empty {
+    <div>No Artifact yet.</div>
 }
+
+<input [(ngModel)]="newName" />
+<button (click)="addNewArtifact(newName);">Add New Artifact</button>
 
 <!-- <app-item
     *ngFor="let artifact of artifacts"

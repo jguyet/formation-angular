@@ -1,0 +1,5 @@
+<div class="header-base">
+    @for (route of routes; track route) {
+        <div class="header-link"><button [routerLink]="route.link" routerLinkActive="link-active">{{ route.name }}</button></div>
+    }
+</div>
