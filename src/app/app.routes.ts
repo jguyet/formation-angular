@@ -8,5 +8,5 @@ export const routes: Routes = [
     { path: '', component: ListComponent },
     { path: 'new/card', component: NewCardComponent },
     { path: 'hooks', component: HooksComponent },
-    { path: 'exemple', component: ExempleComponent }
+    { path: 'exemple', component: ExempleComponent },
 ];

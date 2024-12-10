@@ -1,30 +1,29 @@
 import { Component, OnChanges, OnInit, OnDestroy, AfterContentInit, AfterViewInit } from '@angular/core';
 
 @Component({
-  selector: 'app-hooks',
-  imports: [],
-  templateUrl: './hooks.component.html',
-  styleUrls: ['./hooks.component.css']
+    selector: 'app-hooks',
+    imports: [],
+    templateUrl: './hooks.component.html',
+    styleUrls: ['./hooks.component.css'],
 })
 export class HooksComponent implements OnChanges, OnInit, OnDestroy, AfterContentInit, AfterViewInit {
-  
-  ngOnChanges() {
-    console.log('HooksComponent: OnChanges triggered');
-  }
+    ngOnChanges() {
+        console.log('HooksComponent: OnChanges triggered');
+    }
 
-  ngOnInit() {
-    console.log('HooksComponent: OnInit triggered');
-  }
+    ngOnInit() {
+        console.log('HooksComponent: OnInit triggered');
+    }
 
-  ngOnDestroy() {
-    console.log('HooksComponent: OnDestroy triggered');
-  }
+    ngOnDestroy() {
+        console.log('HooksComponent: OnDestroy triggered');
+    }
 
-  ngAfterContentInit() {
-    console.log('HooksComponent: AfterContentInit triggered');
-  }
+    ngAfterContentInit() {
+        console.log('HooksComponent: AfterContentInit triggered');
+    }
 
-  ngAfterViewInit() {
-    console.log('HooksComponent: AfterViewInit triggered');
-  }
+    ngAfterViewInit() {
+        console.log('HooksComponent: AfterViewInit triggered');
+    }
 }

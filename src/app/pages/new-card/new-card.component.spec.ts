@@ -3,21 +3,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NewCardComponent } from './new-card.component';
 
 describe('NewCardComponent', () => {
-  let component: NewCardComponent;
-  let fixture: ComponentFixture<NewCardComponent>;
+    let component: NewCardComponent;
+    let fixture: ComponentFixture<NewCardComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [NewCardComponent]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [NewCardComponent],
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(NewCardComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(NewCardComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

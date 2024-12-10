@@ -3,21 +3,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Button2Component } from './button2.component';
 
 describe('Button2Component', () => {
-  let component: Button2Component;
-  let fixture: ComponentFixture<Button2Component>;
+    let component: Button2Component;
+    let fixture: ComponentFixture<Button2Component>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Button2Component]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [Button2Component],
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(Button2Component);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(Button2Component);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

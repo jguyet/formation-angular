@@ -3,6 +3,6 @@ export class Card {
         public title: string,
         public description: string,
         public price: number,
-        public type: string
-    ) { }
+        public type: string,
+    ) {}
 }

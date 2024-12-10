@@ -6,22 +6,17 @@ import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-list',
-  imports: [
-    CommonModule,
-    SharedModule
-  ],
-  templateUrl: './list.component.html',
-  styleUrl: './list.component.css'
+    selector: 'app-list',
+    imports: [CommonModule, SharedModule],
+    templateUrl: './list.component.html',
+    styleUrl: './list.component.css',
 })
 export class ListComponent implements OnInit {
+    listOfCards = new Observable<Card[]>();
 
-  listOfCards: Observable<Card[]> = new Observable();
+    constructor(public cardService: CardService) {}
 
-  constructor(public cardService: CardService) { }
-
-  ngOnInit(): void {
-    this.listOfCards = this.cardService.getCards();
-  }
-
+    ngOnInit(): void {
+        this.listOfCards = this.cardService.getCards();
+    }
 }

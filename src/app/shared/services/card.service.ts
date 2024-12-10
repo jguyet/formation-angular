@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { Card } from '../models/card';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class CardService {
+    constructor(public httpClient: HttpClient) {}
 
-  constructor(public httpClient: HttpClient) { }
-
-  getCards(): Observable<Card[]> {
-    return this.httpClient.get<Card[]>('http://angular19.duckdns.org:8080/search_query');
-  }
+    getCards(): Observable<Card[]> {
+        return this.httpClient.get<Card[]>(`${environment.apiUrl}/search_query`);
+    }
 }
