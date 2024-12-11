@@ -1,0 +1,19 @@
+
+.mat-mdc-card-title {
+    color: white!important;
+}
+
+mat-card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+mat-card-header img {
+    float: left;
+}
+
+.card-title {
+    font-size: large;
+    color: white;
+}

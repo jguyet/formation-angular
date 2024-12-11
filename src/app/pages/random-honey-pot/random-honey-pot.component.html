@@ -1,0 +1,5 @@
+<ng-container *ngIf="(randomHoneyPot$ | async) as randomHoneyPot">
+    <app-card [card]="randomHoneyPot"></app-card>
+</ng-container>
+
+<app-button2 (eventClick)="regenerateRandom()">Regenerate</app-button2>

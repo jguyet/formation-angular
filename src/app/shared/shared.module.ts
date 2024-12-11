@@ -6,10 +6,11 @@ import { InputComponent } from './components/input/input.component';
 import { ThemeDirective } from './directives/theme.directive';
 import { FromNowPipePipe } from './pipes/from-now-pipe.pipe';
 import { CardService } from './services/card.service';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
-    imports: [CommonModule, ButtonComponent, Button2Component, InputComponent, ThemeDirective, FromNowPipePipe],
-    exports: [ButtonComponent, Button2Component, InputComponent, ThemeDirective, FromNowPipePipe],
+    imports: [CommonModule, CardComponent, ButtonComponent, Button2Component, InputComponent, ThemeDirective, FromNowPipePipe],
+    exports: [CardComponent, ButtonComponent, Button2Component, InputComponent, ThemeDirective, FromNowPipePipe],
     providers: [CardService],
 })
 export class SharedModule {}
